@@ -17,7 +17,7 @@
 {
     // Override point for customization after application launch.
     [RKClient clientWithBaseURL:[NSURL URLWithString:@"http://vintagebartender.heroku.com"]];
-    //NSLog(@"I am your RKClient singleton : %@", [RKClient sharedClient]); 
+    
     [[RKClient sharedClient] get:@"/people.json" delegate:self];
     
     return YES;
