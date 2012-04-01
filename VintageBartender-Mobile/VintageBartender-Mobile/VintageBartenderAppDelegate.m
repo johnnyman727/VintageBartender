@@ -7,6 +7,7 @@
 //
 
 #import "VintageBartenderAppDelegate.h"
+#import "RestKit/RestKit.h"
 
 @implementation VintageBartenderAppDelegate
 
@@ -15,8 +16,37 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [RKClient clientWithBaseURL:[NSURL URLWithString:@"http://vintagebartender.heroku.com"]];
+    //NSLog(@"I am your RKClient singleton : %@", [RKClient sharedClient]); 
+    [[RKClient sharedClient] get:@"/people.json" delegate:self];
+    
     return YES;
 }
+
+- (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {  
+    if ([request isGET]) {  
+        // Handling GET /foo.xml  
+        
+        if ([response isOK]) {  
+            // Success! Let's take a look at the data  
+            NSLog(@"Retrieved XML: %@", [response bodyAsString]);  
+        }  
+        
+    } else if ([request isPOST]) {  
+        
+        // Handling POST /other.json  
+        if ([response isJSON]) {  
+            NSLog(@"Got a JSON response back from our POST!");  
+        }  
+        
+    } else if ([request isDELETE]) {  
+        
+        // Handling DELETE /missing_resource.txt  
+        if ([response isNotFound]) {  
+            NSLog(@"The resource path '%@' was not found.", [request resourcePath]);  
+        }  
+    }  
+}  
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
