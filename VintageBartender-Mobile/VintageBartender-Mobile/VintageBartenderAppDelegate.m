@@ -72,8 +72,6 @@
     [[RKObjectManager sharedManager].mappingProvider addObjectMapping:barflyMapping];
 }
 
-
-g
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {

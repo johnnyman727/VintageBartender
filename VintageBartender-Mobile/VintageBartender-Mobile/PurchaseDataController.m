@@ -43,18 +43,12 @@
 }
 
 -(void)requestPurchaseListFromServer {
-    // Format string to send to server
-    NSString *jsonString = @"MAKEREALJSONSTRINGHERE";
-    
-    // Send it off to the network controller
+
     
 }
 
 -(void)sendPurchaseToServer:(Purchase *)newPurchase {
-    // Format string to send to server
-    NSString *jsonString = @"MAKEREALJSONSTRINGHERE";
-    
-    // Send it off to the network controller
+
    
 }
 

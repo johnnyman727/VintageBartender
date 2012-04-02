@@ -8,7 +8,6 @@
 
 #import "BarflyDataController.h"
 #import "Barfly.h"
-#import "NetworkDataController.h"
 
 @interface BarflyDataController ()
 -(void) sendBarflyToServer:(Barfly *)newBarfly; 
@@ -59,10 +58,9 @@
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
     RKLogInfo(@"Load collection of Barflys: %@", objects);
+    
     self.barflyList = objects;
-    for (int i = 0; i < [objects count]; i++) {
-        NSLog([[objects objectAtIndex:i] name]);
-    }
+
 }
 
 
