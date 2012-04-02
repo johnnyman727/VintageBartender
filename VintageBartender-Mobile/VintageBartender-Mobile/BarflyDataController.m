@@ -43,19 +43,27 @@
 }
 
 -(void)requestBarflyListFromServer {
-    // Format string to send to server
-    NSString *jsonString = @"MAKEREALJSONSTRINGHERE";
     
-    // Send it off to the network controller
-    [NetworkDataController sendDataToServerFromJSON:jsonString];
+    RKObjectMapping* barflyMapping = [[RKObjectManager sharedManager].mappingProvider objectMappingForClass:[Barfly class]];
+    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/people.json" 
+                                                 objectMapping:barflyMapping delegate:self];
+    
 }
 
 -(void)sendBarflyToServer:(Barfly *)newBarfly {
     // Format string to send to server
-    NSString *jsonString = @"MAKEREALJSONSTRINGHERE";
     
     // Send it off to the network controller
-    [NetworkDataController sendDataToServerFromJSON:jsonString];
+   
 }
+
+- (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
+    RKLogInfo(@"Load collection of Barflys: %@", objects);
+    self.barflyList = objects;
+    for (int i = 0; i < [objects count]; i++) {
+        NSLog([[objects objectAtIndex:i] name]);
+    }
+}
+
 
 @end

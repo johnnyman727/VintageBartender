@@ -47,7 +47,7 @@
     NSString *jsonString = @"MAKEREALJSONSTRINGHERE";
     
     // Send it off to the network controller
-    [NetworkDataController sendDataToServerFromJSON:jsonString];
+    
 }
 
 -(void)sendPurchaseToServer:(Purchase *)newPurchase {
@@ -55,7 +55,7 @@
     NSString *jsonString = @"MAKEREALJSONSTRINGHERE";
     
     // Send it off to the network controller
-    [NetworkDataController sendDataToServerFromJSON:jsonString];
+   
 }
 
 @end

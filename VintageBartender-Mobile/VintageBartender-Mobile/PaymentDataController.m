@@ -50,7 +50,7 @@
     NSString *jsonString = @"MAKEREALJSONSTRINGHERE";
     
     // Send it off to the network controller
-    [NetworkDataController sendDataToServerFromJSON:jsonString];
+   
 }
 
 -(void)sendPaymentToServer:(Payment *)newPayment {
@@ -58,7 +58,7 @@
     NSString *jsonString = @"MAKEREALJSONSTRINGHERE";
     
     // Send it off to the network controller
-    [NetworkDataController sendDataToServerFromJSON:jsonString];
+    
 }
 
 @end

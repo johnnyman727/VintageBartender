@@ -10,7 +10,7 @@
 
 @implementation Barfly 
 
-@synthesize idNum = _idNum, createdAt = _createdAt, name = _name, email = _email;
+@synthesize idNum = _idNum, createdAt = _createdAt, name = _name, email = _email, amountOwed = _amountOwed, updatedAt = _updatedAt;
    
 -(void)viewHistory
 {
@@ -46,10 +46,15 @@
         // No email was provided so leave it null
         _email = email;
         
+        // Don't owe anything yet
+        _amountOwed = 0.0;
+        
+        // Just Updated
+        _updatedAt = _createdAt;
+        
         return self;
     }
     return (nil);
 }
-
 
 @end

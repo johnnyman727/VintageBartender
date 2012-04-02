@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RestKit/RestKit.h"
 
 @interface Barfly : NSObject
 
@@ -14,6 +15,8 @@
 @property (nonatomic, strong) NSDate *createdAt;
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *email;
+@property NSInteger amountOwed;
+@property (nonatomic, strong) NSDate *updatedAt;
 
 -(void)viewHistory;
 -(void)viewPurchases;

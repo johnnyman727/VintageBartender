@@ -8,22 +8,30 @@
 
 #import "VintageBartenderAppDelegate.h"
 #import "RestKit/RestKit.h"
+#import "NetworkDataController.h"
+#import "Barfly.h"
+#import "BarflyDataController.h"
 
 @implementation VintageBartenderAppDelegate
 
-@synthesize window = _window;
+@synthesize window = _window, barflyDataController = _barflyDataController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    [RKClient clientWithBaseURL:[NSURL URLWithString:@"http://vintagebartender.heroku.com"]];
     
-    [[RKClient sharedClient] get:@"/people.json" delegate:self];
+    // Override point for customization after application launch
+    [self setMappings];
+    
+
     
     return YES;
+} 
+
+- (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
+    RKLogInfo(@"Load collection of Barflys: %@", objects);
 }
 
-- (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {  
+-(void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {  
     if ([request isGET]) {  
         // Handling GET /foo.xml  
         
@@ -40,13 +48,32 @@
         }  
         
     } else if ([request isDELETE]) {  
-        
+         
         // Handling DELETE /missing_resource.txt  
         if ([response isNotFound]) {  
             NSLog(@"The resource path '%@' was not found.", [request resourcePath]);  
         }  
     }  
-}  
+} 
+
+-(void) setMappings {
+    // Base URLS
+    [RKClient clientWithBaseURL:[NSURL URLWithString:@"http://vintagebartender.heroku.com"]];
+    [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://vintagebartender.heroku.com"]];
+    
+    // Barfly Mappings
+    RKObjectMapping* barflyMapping = [RKObjectMapping mappingForClass:[Barfly class]];
+    [barflyMapping mapKeyPath:@"id" toAttribute:@"idNum"];
+    [barflyMapping mapKeyPath:@"name" toAttribute:@"name"];
+    [barflyMapping mapKeyPath:@"email" toAttribute:@"email"];
+    [barflyMapping mapKeyPath:@"created_at" toAttribute:@"createdAt"];
+    [barflyMapping mapKeyPath:@"amt_owed" toAttribute:@"amountOwed"];
+    [barflyMapping mapKeyPath:@"updated_at" toAttribute:@"updatedAt"];    
+    [[RKObjectManager sharedManager].mappingProvider addObjectMapping:barflyMapping];
+}
+
+
+g
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {

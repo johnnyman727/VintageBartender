@@ -7,13 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RestKit/RestKit.h"
 
 @interface NetworkDataController : NSObject
 
 +(void)initNetworkListening;
 
-+(void)sendDataToServerFromJSON:(NSString *)jsonData;
-
 +(void)testConnection;
+
++(void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects; 
+
++(void)objectLoader:(RKObjectLoader*)objectLoader didFailWithError:(NSError*)error;
 
 @end
