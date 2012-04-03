@@ -1,0 +1,21 @@
+Person:
+- id (int)
+- created_at (datetime)
+- name (string)
+- email (string)
+
+Purchases:
+- id (int)
+- created_at (datetime)
+- person_id (int)
+- name (string)
+- cost (decimal)
+- notes (text)
+
+Payments:
+- id (int)
+- created_at (datetime)
+- person_id (int)
+- amount (decimal)
+- method (string)
+- notes (text)
