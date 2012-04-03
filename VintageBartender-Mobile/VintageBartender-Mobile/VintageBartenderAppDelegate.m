@@ -8,7 +8,6 @@
 
 #import "VintageBartenderAppDelegate.h"
 #import "RestKit/RestKit.h"
-#import "NetworkDataController.h"
 #import "Barfly.h"
 #import "BarflyDataController.h"
 
@@ -18,18 +17,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
     // Override point for customization after application launch
     [self setMappings];
     
-
+    self.barflyDataController = [[BarflyDataController alloc] init];
+    
+    [self.barflyDataController requestBarflyListFromServer];
     
     return YES;
 } 
-
-- (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
-    RKLogInfo(@"Load collection of Barflys: %@", objects);
-}
 
 -(void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {  
     if ([request isGET]) {  
@@ -47,13 +43,7 @@
             NSLog(@"Got a JSON response back from our POST!");  
         }  
         
-    } else if ([request isDELETE]) {  
-         
-        // Handling DELETE /missing_resource.txt  
-        if ([response isNotFound]) {  
-            NSLog(@"The resource path '%@' was not found.", [request resourcePath]);  
-        }  
-    }  
+    } 
 } 
 
 -(void) setMappings {
@@ -69,7 +59,12 @@
     [barflyMapping mapKeyPath:@"created_at" toAttribute:@"createdAt"];
     [barflyMapping mapKeyPath:@"amt_owed" toAttribute:@"amountOwed"];
     [barflyMapping mapKeyPath:@"updated_at" toAttribute:@"updatedAt"];    
-    [[RKObjectManager sharedManager].mappingProvider addObjectMapping:barflyMapping];
+    [[RKObjectManager sharedManager].mappingProvider setMapping:barflyMapping forKeyPath:@"people"];
+    
+    //[[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/people" delegate:self.barflyDataController];
+    
+    //NSDictionary* params = [NSDictionary dictionaryWithObject:@"George Foreskin" forKey:@"person[name]"];  
+    //[[RKClient sharedClient] post:@"/people.json" params:params delegate:self];
 }
 
 							

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RestKit/RestKit.h"
 
 @class BarflyDataController;
 
@@ -14,6 +15,6 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property (strong, nonatomic) BarflyDataController *barflyDataController;
+@property (retain, nonatomic) BarflyDataController *barflyDataController;
 
 @end

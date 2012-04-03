@@ -11,7 +11,6 @@
 #import "PaymentMethod.h"
 #import "Purchase.h"
 #import "Payment.h"
-#import "NetworkDataController.h"
 
 @interface PaymentDataController()
 -(void)sendPaymentToServer:(Payment *)newPayment;

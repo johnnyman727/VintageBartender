@@ -19,7 +19,6 @@
 
 -(id)init {
     if (self = [super init]) {
-        _barflyList = [NSMutableArray init];
         return self;
     }
     return nil;
@@ -41,26 +40,24 @@
     [self sendBarflyToServer:barfly];
 }
 
--(void)requestBarflyListFromServer {
-    
-    RKObjectMapping* barflyMapping = [[RKObjectManager sharedManager].mappingProvider objectMappingForClass:[Barfly class]];
-    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/people.json" 
-                                                 objectMapping:barflyMapping delegate:self];
-    
+-(void)requestBarflyListFromServer {    
+    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/people" delegate:self];
 }
 
 -(void)sendBarflyToServer:(Barfly *)newBarfly {
-    // Format string to send to server
-    
-    // Send it off to the network controller
    
 }
+
+
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
     RKLogInfo(@"Load collection of Barflys: %@", objects);
     
     self.barflyList = objects;
+}
 
+- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error {
+    RKLogInfo(@"Did not load collection of Barflys: %@", error);
 }
 
 

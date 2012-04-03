@@ -8,7 +8,6 @@
 
 #import "PurchaseDataController.h"
 #import "Purchase.h"
-#import "NetworkDataController.h"
 
 @interface PurchaseDataController ()
 -(void) sendPurchaseToServer:(Purchase *)newPurchase; 

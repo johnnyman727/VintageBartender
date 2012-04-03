@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "REstKit/RestKit.h"
+#import "RestKit/RestKit.h"
 
 @class Barfly;
 
-@interface BarflyDataController : NSObject
+@interface BarflyDataController : NSObject <RKObjectLoaderDelegate, RKRequestDelegate>
 
 @property (nonatomic, copy) NSMutableArray *barflyList;
 
@@ -19,6 +19,5 @@
 - (Barfly *)objectInBarflyListAtIndex:(NSUInteger)index;
 - (void)addBarflyWithName:(NSString *)name email:(NSString *)email;
 - (void)requestBarflyListFromServer;
-- (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects;
-
+- (id)init;
 @end

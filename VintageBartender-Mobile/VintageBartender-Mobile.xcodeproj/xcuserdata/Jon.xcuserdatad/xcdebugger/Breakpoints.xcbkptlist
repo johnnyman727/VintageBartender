@@ -41,42 +41,29 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "No"
+         shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "VintageBartender-Mobile/VintageBartenderAppDelegate.m"
-         timestampString = "355030523.693133"
+         timestampString = "355187742.817651"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "44"
-         endingLineNumber = "44"
-         landmarkName = "-request:didLoadResponse:"
-         landmarkType = "5">
+         startingLineNumber = "75"
+         endingLineNumber = "75"
+         landmarkName = "@implementation VintageBartenderAppDelegate"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "No"
+         shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "VintageBartender-Mobile/VintageBartenderAppDelegate.m"
-         timestampString = "355030523.693133"
+         timestampString = "355187742.817651"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "52"
-         endingLineNumber = "52"
-         landmarkName = "-request:didLoadResponse:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "VintageBartender-Mobile/VintageBartenderAppDelegate.m"
-         timestampString = "355030523.693133"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "59"
-         endingLineNumber = "59"
-         landmarkName = "-request:didLoadResponse:"
+         startingLineNumber = "79"
+         endingLineNumber = "79"
+         landmarkName = "-applicationWillResignActive:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -84,25 +71,64 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "VintageBartender-Mobile/BarflyDataController.m"
-         timestampString = "355030182.204558"
+         timestampString = "355187589.681321"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "61"
-         endingLineNumber = "61"
+         startingLineNumber = "60"
+         endingLineNumber = "60"
+         landmarkName = "-objectLoader:didFailWithError:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "VintageBartender-Mobile/BarflyDataController.m"
+         timestampString = "355187589.681321"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "54"
+         endingLineNumber = "54"
          landmarkName = "-objectLoader:didLoadObjects:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "VintageBartender-Mobile/VintageBartenderAppDelegate.m"
+         timestampString = "355187742.817651"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "70"
+         endingLineNumber = "70"
+         landmarkName = "-setMappings"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "VintageBartender-Mobile/BarflyDataController.m"
-         timestampString = "355030331.769524"
+         timestampString = "355187332.492724"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "47"
-         endingLineNumber = "47"
+         startingLineNumber = "44"
+         endingLineNumber = "44"
          landmarkName = "-requestBarflyListFromServer"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "VintageBartender-Mobile/BarflyDataController.m"
+         timestampString = "355186894.535908"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "21"
+         endingLineNumber = "21"
+         landmarkName = "-init"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
