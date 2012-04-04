@@ -10,6 +10,10 @@
 #import "RestKit/RestKit.h"
 #import "Barfly.h"
 #import "BarflyDataController.h"
+#import "Purchase.h"
+#import "PurchaseDataController.h"
+#import "Payment.h"
+#import "PaymentDataController.h"
 
 @implementation VintageBartenderAppDelegate
 
@@ -22,7 +26,11 @@
     
     self.barflyDataController = [[BarflyDataController alloc] init];
     
-    [self.barflyDataController requestBarflyListFromServer];
+    //[self.barflyDataController requestBarflyListFromServer];
+    
+    Barfly *barfly = [[Barfly alloc] initWithName:@"Joey Fischer" email:@"jf@students.olin.edu"];
+    
+    [[RKObjectManager sharedManager] postObject:barfly delegate:self.barflyDataController]; 
     
     return YES;
 } 
@@ -50,6 +58,7 @@
     // Base URLS
     [RKClient clientWithBaseURL:[NSURL URLWithString:@"http://vintagebartender.heroku.com"]];
     [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://vintagebartender.heroku.com"]];
+    [RKObjectManager sharedManager].serializationMIMEType = RKMIMETypeJSON;
     
     // Barfly Mappings
     RKObjectMapping* barflyMapping = [RKObjectMapping mappingForClass:[Barfly class]];
@@ -61,7 +70,22 @@
     [barflyMapping mapKeyPath:@"updated_at" toAttribute:@"updatedAt"];    
     [[RKObjectManager sharedManager].mappingProvider setMapping:barflyMapping forKeyPath:@"people"];
     
-    //[[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/people" delegate:self.barflyDataController];
+    // Configure a serialization mapping for our Barfly class
+    RKObjectMapping* barflySerializationMapping = [RKObjectMapping mappingForClass:[NSMutableDictionary class]];
+    [barflySerializationMapping mapAttributes:@"name", @"email", nil];
+    
+    // Now register the mapping with the provider
+    [[RKObjectManager sharedManager].mappingProvider setSerializationMapping:barflySerializationMapping forClass:[Barfly class]];
+    
+    // Set up the routing for Barfly POSTS
+    RKObjectRouter *router = [[RKObjectManager sharedManager] router];
+    [router routeClass:[Barfly class] toResourcePath:@"/people" forMethod:RKRequestMethodPOST];
+    
+    // Purchase Mappings
+    RKObjectMapping *purchaseMapping = [RKObjectMapping mappingForClass:[Purchase class]];
+    [purchaseMapping mapKeyPath:@"id" toAttribute:@"idNum"];
+    
+    
     
     //NSDictionary* params = [NSDictionary dictionaryWithObject:@"George Foreskin" forKey:@"person[name]"];  
     //[[RKClient sharedClient] post:@"/people.json" params:params delegate:self];

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "RestKit/RestKit.h"
 
-@interface Barfly : NSObject
+@interface Barfly : NSObject <RKObjectLoaderDelegate>
 
 @property NSInteger idNum;
 @property (nonatomic, strong) NSDate *createdAt;
