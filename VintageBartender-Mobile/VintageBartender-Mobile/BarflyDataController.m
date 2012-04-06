@@ -45,20 +45,20 @@
 }
 
 -(void)sendBarflyToServer:(Barfly *)newBarfly {
-   
+   [[RKObjectManager sharedManager] postObject:newBarfly delegate:self]; 
 }
-
-
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
     RKLogInfo(@"Load collection of Barflys: %@", objects);
     
+    // Add the objects to the instance variable for later usage
     self.barflyList = objects;
 }
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error {
-    RKLogInfo(@"Did not load collection of Barflys: %@", error);
+    RKLogInfo(@"Load collection of Barflys FAILED: %@", error);
 }
+
 
 
 @end

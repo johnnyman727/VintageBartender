@@ -7,16 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-#include "Barfly.h"
 
 @interface Purchase : NSObject
 
-@property NSInteger *idNum;
+@property NSInteger idNum;
 @property (nonatomic, strong) NSDate *createdAt;
-@property (nonatomic, copy) Barfly *barfly;
-@property (nonatomic, copy) NSMutableArray *drinks;
+@property NSInteger barflyIdNum;
+@property (nonatomic, copy) NSString *drinks;
+@property NSInteger cost;
+@property (nonatomic, copy) NSString *notes;
 
--(id)initWithId:(NSInteger *) idNum by:(Barfly *)barfly purchased:(NSMutableArray *) drinks;
+-(id)initWithId:(NSInteger) idNum by:(NSInteger)bardlyIdNum purchased:(NSMutableArray *) drinks cost:(NSInteger )cost notes:(NSString *)notes;
 
 
 @end

@@ -10,11 +10,14 @@
 #import "RestKit/RestKit.h"
 
 @class BarflyDataController;
+@class PurchaseDataController;
 
 @interface VintageBartenderAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
 @property (retain, nonatomic) BarflyDataController *barflyDataController;
+
+@property (retain, nonatomic) PurchaseDataController *purchaseDataController;
 
 @end

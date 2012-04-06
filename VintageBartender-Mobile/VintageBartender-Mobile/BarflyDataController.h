@@ -13,11 +13,15 @@
 
 @interface BarflyDataController : NSObject <RKObjectLoaderDelegate, RKRequestDelegate>
 
-@property (nonatomic, copy) NSMutableArray *barflyList;
+@property (nonatomic, copy) NSArray *barflyList;
 
 - (NSUInteger)countOfBarflyList;
+
 - (Barfly *)objectInBarflyListAtIndex:(NSUInteger)index;
+
 - (void)addBarflyWithName:(NSString *)name email:(NSString *)email;
+
 - (void)requestBarflyListFromServer;
+
 - (id)init;
 @end

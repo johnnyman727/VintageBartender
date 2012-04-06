@@ -11,13 +11,16 @@
 @class Purchase;
 @class Barfly;
 
-@interface PurchaseDataController : NSObject
+@interface PurchaseDataController : NSObject <RKObjectLoaderDelegate, RKRequestDelegate>
 
-@property (nonatomic, copy) NSMutableArray *purchaseList;
+@property (nonatomic, copy) NSArray *purchaseList;
 
--(NSUInteger)countOfPurchaseList;
--(Purchase *)objectInPurchaseListAtIndex:(NSUInteger)index;
--(void)addPurchaseListObjectWithId:(NSInteger *) idNum barfly:(Barfly *)barfly drinks:(NSMutableArray *)drinks;
--(void)requestPurchaseListFromServer;
+- (NSUInteger)countOfPurchaseList;
+
+- (Purchase *)objectInPurchaseListAtIndex:(NSUInteger)index;
+
+- (void)addPurchaseListObjectWithId:(NSInteger *) idNum barfly:(Barfly *)barfly drinks:(NSMutableArray *)drinks;
+
+- (void)requestPurchaseListFromServer;
 
 @end

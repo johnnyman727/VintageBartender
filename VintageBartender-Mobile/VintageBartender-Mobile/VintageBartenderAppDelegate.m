@@ -17,7 +17,7 @@
 
 @implementation VintageBartenderAppDelegate
 
-@synthesize window = _window, barflyDataController = _barflyDataController;
+@synthesize window = _window, barflyDataController = _barflyDataController, purchaseDataController = _purchaseDataController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -26,32 +26,11 @@
     
     self.barflyDataController = [[BarflyDataController alloc] init];
     
-    //[self.barflyDataController requestBarflyListFromServer];
+    self.purchaseDataController = [[PurchaseDataController alloc] init];
     
-    Barfly *barfly = [[Barfly alloc] initWithName:@"Joey Fischer" email:@"jf@students.olin.edu"];
-    
-    [[RKObjectManager sharedManager] postObject:barfly delegate:self.barflyDataController]; 
+    [self.purchaseDataController requestPurchaseListFromServer];
     
     return YES;
-} 
-
--(void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {  
-    if ([request isGET]) {  
-        // Handling GET /foo.xml  
-        
-        if ([response isOK]) {  
-            // Success! Let's take a look at the data  
-            NSLog(@"Retrieved XML: %@", [response bodyAsString]);  
-        }  
-        
-    } else if ([request isPOST]) {  
-        
-        // Handling POST /other.json  
-        if ([response isJSON]) {  
-            NSLog(@"Got a JSON response back from our POST!");  
-        }  
-        
-    } 
 } 
 
 -(void) setMappings {
@@ -60,7 +39,7 @@
     [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://vintagebartender.heroku.com"]];
     [RKObjectManager sharedManager].serializationMIMEType = RKMIMETypeJSON;
     
-    // Barfly Mappings
+    //******* Barfly Mappings **************    
     RKObjectMapping* barflyMapping = [RKObjectMapping mappingForClass:[Barfly class]];
     [barflyMapping mapKeyPath:@"id" toAttribute:@"idNum"];
     [barflyMapping mapKeyPath:@"name" toAttribute:@"name"];
@@ -81,16 +60,20 @@
     RKObjectRouter *router = [[RKObjectManager sharedManager] router];
     [router routeClass:[Barfly class] toResourcePath:@"/people" forMethod:RKRequestMethodPOST];
     
+    
     // Purchase Mappings
     RKObjectMapping *purchaseMapping = [RKObjectMapping mappingForClass:[Purchase class]];
     [purchaseMapping mapKeyPath:@"id" toAttribute:@"idNum"];
-    
+    [purchaseMapping mapKeyPath:@"created_at" toAttribute:@"createdAt"];
+    [purchaseMapping mapKeyPath:@"id" toAttribute:@"barflyIdNum"];
+    [purchaseMapping mapKeyPath:@"drinks" toAttribute:@"drinks"];
+    [purchaseMapping mapKeyPath:@"notes" toAttribute:@"notes"];
+    [[RKObjectManager sharedManager].mappingProvider setMapping:purchaseMapping forKeyPath:@"purchases"];   
     
     
     //NSDictionary* params = [NSDictionary dictionaryWithObject:@"George Foreskin" forKey:@"person[name]"];  
     //[[RKClient sharedClient] post:@"/people.json" params:params delegate:self];
 }
-
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {

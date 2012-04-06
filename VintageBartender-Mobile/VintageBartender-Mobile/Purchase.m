@@ -10,9 +10,9 @@
 
 @implementation Purchase
 
-@synthesize idNum = _idNum, createdAt = _createdAt, barfly = _barfly, drinks = _drinks;
+@synthesize idNum = _idNum, createdAt = _createdAt, barflyIdNum=_barflyIdNum, drinks = _drinks, cost = _cost, notes = _notes;
 
--(id)initWithId:(NSInteger *)idNum by:(Barfly *)barfly purchased:(NSMutableArray *)drinks
+-(id)initWithId:(NSInteger) idNum by:(NSInteger)barflyIdNum purchased:(NSString *) drinks cost:(NSInteger)cost notes:(NSString *)notes
 {
     self = [super init];
     
@@ -24,11 +24,14 @@
         // Assign creation date
         _createdAt = [NSDate date];
         
-        // Assign barfly
-        _barfly = barfly;
+        // Assign barfly id
+        _barflyIdNum = barflyIdNum;
         
         // Assign drinks
         _drinks = drinks;
+        
+        // Assign notes
+        notes = _notes;
         
         return self;
     }
