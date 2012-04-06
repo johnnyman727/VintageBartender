@@ -7,12 +7,16 @@
 //
 
 #import "VintageBartenderFirstViewController.h"
+#import "Barfly.h"
+#import "BarflyDataController.h"
 
 @interface VintageBartenderFirstViewController ()
 
 @end
 
 @implementation VintageBartenderFirstViewController
+
+@synthesize nameLabel = _nameLabel, barflyDataController=_barflyDataController;
 
 - (void)viewDidLoad
 {
@@ -22,6 +26,7 @@
 
 - (void)viewDidUnload
 {
+    [self setNameLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -35,4 +40,8 @@
     }
 }
 
+
+- (IBAction)nameLabelEditBegin:(UITextField *)sender {
+    self.nameLabel.text = @"Testing For Realz";
+}
 @end

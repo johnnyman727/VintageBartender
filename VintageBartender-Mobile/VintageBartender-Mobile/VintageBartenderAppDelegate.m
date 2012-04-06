@@ -26,9 +26,9 @@
     
     self.barflyDataController = [[BarflyDataController alloc] init];
     
-    self.purchaseDataController = [[PurchaseDataController alloc] init];
+    // self.purchaseDataController = [[PurchaseDataController alloc] init];
     
-    [self.purchaseDataController requestPurchaseListFromServer];
+    // [self.purchaseDataController requestPurchaseListFromServer];
     
     return YES;
 } 

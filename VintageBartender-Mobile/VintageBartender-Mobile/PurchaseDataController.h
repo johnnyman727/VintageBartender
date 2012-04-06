@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RestKit/RestKit.h"
 
 @class Purchase;
 @class Barfly;
@@ -19,7 +20,7 @@
 
 - (Purchase *)objectInPurchaseListAtIndex:(NSUInteger)index;
 
-- (void)addPurchaseListObjectWithId:(NSInteger *) idNum barfly:(Barfly *)barfly drinks:(NSMutableArray *)drinks;
+-(void)addPurchaseListObjectWithId:(NSInteger)idNum barfly:(Barfly *)barfly drinks:(NSString *)drinks cost:(NSInteger)cost notes:(NSString *)notes;
 
 - (void)requestPurchaseListFromServer;
 

@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VintageBartenderFirstViewController : UIViewController
+@class BarflyDataController;
+
+@interface VintageBartenderFirstViewController : UIViewController 
+
+- (IBAction)nameLabelEditBegin:(UITextField *)sender;
+
+@property (weak, nonatomic) IBOutlet UITextField *nameLabel;
+
+@property (strong, nonatomic) BarflyDataController *barflyDataController;
 
 @end

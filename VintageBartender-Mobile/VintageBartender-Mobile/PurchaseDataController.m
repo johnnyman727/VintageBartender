@@ -8,6 +8,7 @@
 
 #import "PurchaseDataController.h"
 #import "Purchase.h"
+#import "Barfly.h"
 #import "RestKit/RestKit.h"
 
 @interface PurchaseDataController ()
@@ -33,7 +34,7 @@
     return [self.purchaseList objectAtIndex:index];
 }
 
--(void)addPurchaseListObjectWithId:(NSInteger *)idNum barfly:(Barfly *)barfly drinks:(NSString *)drinks, (NSInteger)cost, (NSString *)notes{
+-(void)addPurchaseListObjectWithId:(NSInteger)idNum barfly:(Barfly *)barfly drinks:(NSString *)drinks cost:(NSInteger)cost notes:(NSString *)notes{
 
     Purchase *purchase = [[Purchase alloc] initWithId:idNum by:barfly.idNum purchased:drinks cost:cost notes:notes];
     

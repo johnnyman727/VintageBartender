@@ -17,7 +17,7 @@
 @property NSInteger cost;
 @property (nonatomic, copy) NSString *notes;
 
--(id)initWithId:(NSInteger) idNum by:(NSInteger)bardlyIdNum purchased:(NSMutableArray *) drinks cost:(NSInteger )cost notes:(NSString *)notes;
+-(id)initWithId:(NSInteger) idNum by:(NSInteger)bardlyIdNum purchased:(NSString *) drinks cost:(NSInteger )cost notes:(NSString *)notes;
 
 
 @end
