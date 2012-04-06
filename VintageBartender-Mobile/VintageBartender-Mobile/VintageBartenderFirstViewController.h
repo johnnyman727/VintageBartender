@@ -16,6 +16,5 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *nameLabel;
 
-@property (strong, nonatomic) BarflyDataController *barflyDataController;
 
 @end

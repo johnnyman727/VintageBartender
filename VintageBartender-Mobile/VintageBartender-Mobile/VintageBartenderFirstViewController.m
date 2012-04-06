@@ -16,7 +16,7 @@
 
 @implementation VintageBartenderFirstViewController
 
-@synthesize nameLabel = _nameLabel, barflyDataController=_barflyDataController;
+@synthesize nameLabel = _nameLabel;
 
 - (void)viewDidLoad
 {

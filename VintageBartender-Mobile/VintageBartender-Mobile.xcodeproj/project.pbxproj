@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC381CC6152F9AC40079011B /* BarflyTableDataControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC381CC5152F9AC40079011B /* BarflyTableDataControllerViewController.m */; };
 		FC7CBD2A1528145D003C819A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC7CBD291528145D003C819A /* UIKit.framework */; };
 		FC7CBD2C1528145D003C819A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC7CBD2B1528145D003C819A /* Foundation.framework */; };
 		FC7CBD2E1528145D003C819A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC7CBD2D1528145D003C819A /* CoreGraphics.framework */; };
@@ -101,6 +102,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FC381CC4152F9AC40079011B /* BarflyTableDataControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BarflyTableDataControllerViewController.h; path = "VintageBartender-Mobile/BarflyTableDataControllerViewController.h"; sourceTree = "<group>"; };
+		FC381CC5152F9AC40079011B /* BarflyTableDataControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BarflyTableDataControllerViewController.m; path = "VintageBartender-Mobile/BarflyTableDataControllerViewController.m"; sourceTree = "<group>"; };
 		FC7CBD251528145D003C819A /* VintageBartender-Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VintageBartender-Mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC7CBD291528145D003C819A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FC7CBD2B1528145D003C819A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -294,6 +297,8 @@
 				FC7CBD3E1528145D003C819A /* MainStoryboard_iPad.storyboard */,
 				FC7CBD411528145D003C819A /* VintageBartenderFirstViewController.h */,
 				FC7CBD421528145D003C819A /* VintageBartenderFirstViewController.m */,
+				FC381CC4152F9AC40079011B /* BarflyTableDataControllerViewController.h */,
+				FC381CC5152F9AC40079011B /* BarflyTableDataControllerViewController.m */,
 			);
 			name = Views;
 			path = ..;
@@ -587,6 +592,7 @@
 				FC7CBDC015281880003C819A /* PaymentMethod.m in Sources */,
 				FC7CBDC115281880003C819A /* Purchase.m in Sources */,
 				FC7CBDC215281880003C819A /* PurchaseDataController.m in Sources */,
+				FC381CC6152F9AC40079011B /* BarflyTableDataControllerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
