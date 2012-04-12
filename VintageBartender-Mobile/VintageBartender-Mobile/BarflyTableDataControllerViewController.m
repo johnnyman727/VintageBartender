@@ -70,6 +70,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
+    Barfly *barfly = [self.barflyDataController objectInBarflyListAtIndex:indexPath.row];
+    [[cell textLabel] setText:barfly.name]; 
     
     return cell;
 }

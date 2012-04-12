@@ -10,7 +10,7 @@
 
 @class BarflyDataController;
 
-@interface BarflyTableDataControllerViewController : UITableViewController
+@interface BarflyTableDataControllerViewController : UITableViewController <UITextFieldDelegate>
 
 @property (strong, nonatomic) BarflyDataController *barflyDataController;
 

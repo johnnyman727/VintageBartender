@@ -15,13 +15,16 @@
 
 @property (nonatomic, copy) NSArray *barflyList;
 
+- (id)init;
+
 - (NSUInteger)countOfBarflyList;
 
 - (Barfly *)objectInBarflyListAtIndex:(NSUInteger)index;
+
+- (void)addBarfly:(Barfly *)newBarfly;
 
 - (void)addBarflyWithName:(NSString *)name email:(NSString *)email;
 
 - (void)requestBarflyListFromServer;
 
-- (id)init;
 @end

@@ -9,16 +9,13 @@
 #import "BarflyDataController.h"
 #import "Barfly.h"
 
-@interface BarflyDataController ()
--(void) sendBarflyToServer:(Barfly *)newBarfly; 
-@end
-
 @implementation BarflyDataController
 
 @synthesize barflyList=_barflyList;
 
 -(id)init {
     if (self = [super init]) {
+        
         return self;
     }
     return nil;
@@ -32,20 +29,22 @@
     return [self.barflyList objectAtIndex:index];
 }
 
+-(void)addBarfly:(Barfly *)newBarfly {
+    [[RKObjectManager sharedManager] postObject:newBarfly delegate:self]; 
+    
+    [self requestBarflyListFromServer];
+}
+
 -(void)addBarflyWithName:(NSString *)name email:(NSString *)email {
     Barfly *barfly;
 
     barfly = [[Barfly alloc] initWithName:name email:email];
 
-    [self sendBarflyToServer:barfly];
+    [self addBarfly:barfly];
 }
 
 -(void)requestBarflyListFromServer {    
     [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/people" delegate:self];
-}
-
--(void)sendBarflyToServer:(Barfly *)newBarfly {
-   [[RKObjectManager sharedManager] postObject:newBarfly delegate:self]; 
 }
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
