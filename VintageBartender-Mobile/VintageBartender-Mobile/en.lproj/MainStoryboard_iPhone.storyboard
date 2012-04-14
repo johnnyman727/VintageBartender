@@ -33,7 +33,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
                                 <connections>
-                                    <action selector="nameLabelEditBegin:" destination="2" eventType="editingDidBegin" id="mtw-OQ-wSZ"/>
+                                    <action selector="nameLabelEditChanged:" destination="2" eventType="editingChanged" id="PgZ-DX-pcR"/>
                                     <outlet property="delegate" destination="2" id="jyO-bK-92K"/>
                                 </connections>
                             </textField>
@@ -59,10 +59,22 @@
                                     <action selector="createCustomer:" destination="2" eventType="touchUpInside" id="w5D-sm-k8w"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="MKr-iH-7ta">
-                                <rect key="frame" x="25" y="127" width="275" height="206"/>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="MKr-iH-7ta">
+                                <rect key="frame" x="24" y="128" width="272" height="141"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="S59-mA-Woy">
+                                        <rect key="frame" x="0.0" y="46" width="272" height="46"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="252" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
                                 <connections>
                                     <outlet property="dataSource" destination="2" id="Dhi-QJ-Lbm"/>
                                     <outlet property="delegate" destination="2" id="zuM-ZZ-sye"/>
@@ -141,7 +153,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VintageBartenderFirstViewController.h"/>
             <relationships>
                 <relationship kind="action" name="createCustomer:" candidateClass="UIButton"/>
-                <relationship kind="action" name="nameLabelEditBegin:" candidateClass="UITextField"/>
+                <relationship kind="action" name="nameLabelEditChanged:" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="barflyTable" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="nameLabel" candidateClass="UITextField"/>
             </relationships>

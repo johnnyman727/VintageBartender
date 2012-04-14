@@ -11,9 +11,8 @@
 @class BarflyDataController;
 
 @interface VintageBartenderFirstViewController : UIViewController <UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
+- (IBAction)nameLabelEditChanged:(UITextField *)sender;
 - (IBAction)createCustomer:(UIButton *)sender;
-
-- (IBAction)nameLabelEditBegin:(UITextField *)sender;
 
 @property (weak, nonatomic) IBOutlet UITextField *nameLabel;
 

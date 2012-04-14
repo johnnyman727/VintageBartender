@@ -44,6 +44,22 @@
 }
 
 
+- (IBAction)nameLabelEditChanged:(UITextField *)sender {
+    // Make sure we are talking about the name label
+    if (sender == self.nameLabel) {
+        // If there is no text, make the table hidden
+        if ([self.nameLabel.text length] == 0) {
+            [self.barflyTable setHidden:YES];
+        }
+        // If there is text, display the table
+        else {
+            [self.barflyTable setHidden:NO];
+            [self.barflyDataController filterBarflies:sender.text];
+        }
+        
+    } 
+}
+
 - (IBAction)createCustomer:(UIButton *)sender {
     
     if ([self.nameLabel.text length] == 0) {
@@ -72,11 +88,6 @@
 }
 
 - (void)createPurchase {
-    
-}
-
-- (IBAction)nameLabelEditBegin:(UITextField *)sender {
-    
     
 }
 

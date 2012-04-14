@@ -16,6 +16,8 @@
 
 @property (nonatomic, copy) NSArray *barflyList;
 
+@property (nonatomic, copy) NSArray *filteredBarflyList;
+
 @property (nonatomic, retain) VintageBartenderFirstViewController *vbc;
 
 - (id)init;
@@ -29,5 +31,7 @@
 - (void)addBarflyWithName:(NSString *)name email:(NSString *)email;
 
 - (void)requestBarflyListFromServer;
+
+- (void)filterBarflies:(NSString *)searchText;
 
 @end

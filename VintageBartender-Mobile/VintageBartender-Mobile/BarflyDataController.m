@@ -12,7 +12,7 @@
 
 @implementation BarflyDataController
 
-@synthesize barflyList=_barflyList, vbc = _vbc;
+@synthesize barflyList=_barflyList, filteredBarflyList=_filteredBarflyList, vbc = _vbc;
 
 -(id)init {
     if (self = [super init]) {
@@ -23,11 +23,11 @@
 }
 
 -(NSUInteger)countOfBarflyList {
-    return [self.barflyList count];
+    return [self.filteredBarflyList count];
 }
 
 -(Barfly *)objectInBarflyListAtIndex:(NSUInteger)index {
-    return [self.barflyList objectAtIndex:index];
+    return [self.filteredBarflyList objectAtIndex:index];
 }
 
 -(void)addBarfly:(Barfly *)newBarfly {
@@ -57,7 +57,7 @@
     RKLogInfo(@"Load collection of Barflys: %@", objects);
     
     // Add the objects to the instance variable for later usage
-    self.barflyList = objects;
+    self.barflyList = self.filteredBarflyList = objects;
     
     // Tell vbc
     [self.vbc.barflyTable reloadData];
@@ -76,6 +76,47 @@
                                           otherButtonTitles:nil];
     // Show the alert
     [alert show];
+}
+
+- (void)filterBarflies:(NSString *)searchText {
+    
+    // Set our old filtered list to empty
+    NSMutableArray *tempFiltered = [[NSMutableArray alloc] init];
+    
+    // Create a list for the first and last names
+    NSArray *splitNames = [[NSArray alloc] init];
+    
+    // Iterate through our barfly list
+    for (Barfly *barfly in self.barflyList) {
+        
+        // Split up the first and last name (for better searching capabilites)
+        splitNames = [barfly.name componentsSeparatedByString:@" "];
+        
+        // For each of the barfly's names
+        for (NSString *nameComponent in splitNames) {
+            
+            // If the search text matches part or all of one of the names
+            if ([nameComponent rangeOfString:searchText].location != NSNotFound) {
+                
+                // Add that barfly to the list
+                [tempFiltered addObject:barfly];
+            }
+        }
+    }
+    
+    // If the filtered list has no items, hide the table
+    if ([tempFiltered count] == 0) {
+        [self.vbc.barflyTable setHidden:YES];
+    }
+    // Else update the filtered list and the table
+    else {
+        // Attach list to the retained filered list
+        self.filteredBarflyList = tempFiltered;
+        
+        // Update the table
+        [self.vbc.barflyTable reloadData];
+    }
+    
 }
 
 
