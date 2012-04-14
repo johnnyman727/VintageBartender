@@ -44,11 +44,6 @@
                                 <color key="textColor" red="0.87296715560000004" green="0.4587106876" blue="0.00016910867470000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="uyR-pM-8dc" customClass="BarflyTableViewController">
-                                <rect key="frame" x="25" y="126" width="270" height="206"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ZCF-WA-XUo">
                                 <rect key="frame" x="25" y="354" width="270" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -64,11 +59,21 @@
                                     <action selector="createCustomer:" destination="2" eventType="touchUpInside" id="w5D-sm-k8w"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="MKr-iH-7ta">
+                                <rect key="frame" x="25" y="127" width="275" height="206"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="2" id="Dhi-QJ-Lbm"/>
+                                    <outlet property="delegate" destination="2" id="zuM-ZZ-sye"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="First" image="first" id="7"/>
                     <connections>
+                        <outlet property="barflyTable" destination="MKr-iH-7ta" id="RiM-Z1-0p9"/>
                         <outlet property="nameLabel" destination="hf8-rX-4G6" id="fXq-gi-kDb"/>
                     </connections>
                 </viewController>
@@ -137,6 +142,7 @@
             <relationships>
                 <relationship kind="action" name="createCustomer:" candidateClass="UIButton"/>
                 <relationship kind="action" name="nameLabelEditBegin:" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="barflyTable" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="nameLabel" candidateClass="UITextField"/>
             </relationships>
         </class>

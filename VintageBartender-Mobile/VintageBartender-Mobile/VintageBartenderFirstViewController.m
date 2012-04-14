@@ -16,12 +16,13 @@
 
 @implementation VintageBartenderFirstViewController
 
-@synthesize nameLabel = _nameLabel, barflyDataController=_barflyDataController;
+@synthesize nameLabel = _nameLabel, barflyDataController=_barflyDataController, barflyTable=_barflyTable;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.barflyDataController = [[BarflyDataController alloc] init];
+    self.barflyDataController.vbc = self;
     [self.barflyDataController requestBarflyListFromServer];
 	// Do any additional setup after loading the view, typically from a nib.
 }
@@ -45,6 +46,16 @@
 
 - (IBAction)createCustomer:(UIButton *)sender {
     
+    if ([self.nameLabel.text length] == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Empty Name" 
+                                                        message:@"Please enter a legit name, bro." 
+                                                       delegate:nil 
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        return;
+        
+    }
     Barfly *newBarfly = [[Barfly alloc] initWithName:self.nameLabel.text email:@"Test.ing@students.olin.edu"];
     
     // Check if the person already exists in the database
@@ -65,7 +76,7 @@
 }
 
 - (IBAction)nameLabelEditBegin:(UITextField *)sender {
-    self.nameLabel.text = @"Testing For Realz";
+    
     
 }
 
@@ -75,6 +86,51 @@
     }
     return YES;
 }
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    // Return the number of rows in the section.
+    return [self.barflyDataController countOfBarflyList];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"BarflyCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        
+    }
+    // Configure the cell...
+    Barfly *barfly = [self.barflyDataController objectInBarflyListAtIndex:indexPath.row];
+    [[cell textLabel] setText:barfly.name];
+    
+    return cell;
+}
+
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Navigation logic may go here. Create and push another view controller.
+    /*
+     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+     // ...
+     // Pass the selected object to the new view controller.
+     [self.navigationController pushViewController:detailViewController animated:YES];
+     */
+}
+
 @end
 
 

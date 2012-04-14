@@ -10,10 +10,13 @@
 #import "RestKit/RestKit.h"
 
 @class Barfly;
+@class VintageBartenderFirstViewController;
 
 @interface BarflyDataController : NSObject <RKObjectLoaderDelegate, RKRequestDelegate>
 
 @property (nonatomic, copy) NSArray *barflyList;
+
+@property (nonatomic, retain) VintageBartenderFirstViewController *vbc;
 
 - (id)init;
 

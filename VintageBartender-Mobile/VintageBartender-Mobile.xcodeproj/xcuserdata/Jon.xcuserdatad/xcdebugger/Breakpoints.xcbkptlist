@@ -135,39 +135,13 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "VintageBartender-Mobile/VintageBartenderFirstViewController.m"
-         timestampString = "355890647.373554"
+         filePath = "VintageBartender-Mobile/BarflyDataController.m"
+         timestampString = "356122111.149353"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "51"
-         endingLineNumber = "51"
-         landmarkName = "-createCustomer:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "VintageBartender-Mobile/VintageBartenderFirstViewController.m"
-         timestampString = "355892632.04427"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "54"
-         endingLineNumber = "54"
-         landmarkName = "-createCustomer:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "VintageBartender-Mobile/VintageBartenderFirstViewController.m"
-         timestampString = "355892633.710164"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "60"
-         endingLineNumber = "60"
-         landmarkName = "-createCustomer:"
+         startingLineNumber = "58"
+         endingLineNumber = "58"
+         landmarkName = "-objectLoader:didLoadObjects:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
