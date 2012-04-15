@@ -28,7 +28,6 @@
 		FC7CBD631528145D003C819A /* VintageBartender_MobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7CBD621528145D003C819A /* VintageBartender_MobileTests.m */; };
 		FC7CBDB615281880003C819A /* Barfly.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7CBD9F15281880003C819A /* Barfly.m */; };
 		FC7CBDB715281880003C819A /* BarflyDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7CBDA115281880003C819A /* BarflyDataController.m */; };
-		FC7CBDB815281880003C819A /* beer.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FC7CBDA215281880003C819A /* beer.jpg */; };
 		FC7CBDB915281880003C819A /* CashPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7CBDA415281880003C819A /* CashPayment.m */; };
 		FC7CBDBA15281880003C819A /* CreditCardPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7CBDA615281880003C819A /* CreditCardPayment.m */; };
 		FC7CBDBB15281880003C819A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FC7CBDA715281880003C819A /* Default.png */; };
@@ -46,6 +45,7 @@
 		FC9EB17F15281F1C0009D8D4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC9EB17815281F1C0009D8D4 /* QuartzCore.framework */; };
 		FC9EB18015281F1C0009D8D4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC9EB17915281F1C0009D8D4 /* Security.framework */; };
 		FC9EB18115281F1C0009D8D4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC9EB17A15281F1C0009D8D4 /* SystemConfiguration.framework */; };
+		FCA30D85153A798900AE5879 /* beer.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA30D84153A798900AE5879 /* beer.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,7 +131,6 @@
 		FC7CBD9F15281880003C819A /* Barfly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Barfly.m; path = "VintageBartender-Mobile/Barfly.m"; sourceTree = "<group>"; };
 		FC7CBDA015281880003C819A /* BarflyDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BarflyDataController.h; path = "VintageBartender-Mobile/BarflyDataController.h"; sourceTree = "<group>"; };
 		FC7CBDA115281880003C819A /* BarflyDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BarflyDataController.m; path = "VintageBartender-Mobile/BarflyDataController.m"; sourceTree = "<group>"; };
-		FC7CBDA215281880003C819A /* beer.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = beer.jpg; path = "VintageBartender-Mobile/beer.jpg"; sourceTree = "<group>"; };
 		FC7CBDA315281880003C819A /* CashPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CashPayment.h; path = "VintageBartender-Mobile/CashPayment.h"; sourceTree = "<group>"; };
 		FC7CBDA415281880003C819A /* CashPayment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CashPayment.m; path = "VintageBartender-Mobile/CashPayment.m"; sourceTree = "<group>"; };
 		FC7CBDA515281880003C819A /* CreditCardPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreditCardPayment.h; path = "VintageBartender-Mobile/CreditCardPayment.h"; sourceTree = "<group>"; };
@@ -157,6 +156,7 @@
 		FC9EB17815281F1C0009D8D4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		FC9EB17915281F1C0009D8D4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		FC9EB17A15281F1C0009D8D4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		FCA30D84153A798900AE5879 /* beer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = beer.png; path = "VintageBartender-Mobile/beer.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -390,7 +390,7 @@
 		FC7CBD9B152815F7003C819A /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				FC7CBDA215281880003C819A /* beer.jpg */,
+				FCA30D84153A798900AE5879 /* beer.png */,
 				FC7CBDA715281880003C819A /* Default.png */,
 				FC7CBD441528145D003C819A /* first.png */,
 				FC7CBD461528145D003C819A /* first@2x.png */,
@@ -537,8 +537,8 @@
 				FC7CBD471528145D003C819A /* first@2x.png in Resources */,
 				FC7CBD4C1528145D003C819A /* second.png in Resources */,
 				FC7CBD4E1528145D003C819A /* second@2x.png in Resources */,
-				FC7CBDB815281880003C819A /* beer.jpg in Resources */,
 				FC7CBDBB15281880003C819A /* Default.png in Resources */,
+				FCA30D85153A798900AE5879 /* beer.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

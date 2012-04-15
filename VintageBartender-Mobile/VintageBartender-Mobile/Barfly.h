@@ -18,9 +18,11 @@
 @property NSInteger amountOwed;
 @property (nonatomic, strong) NSDate *updatedAt;
 
--(void)viewHistory;
--(void)viewPurchases;
--(void)viewPayments;
--(id)initWithName:(NSString *)name email: (NSString *)email;
+- (void)viewHistory;
+- (void)viewPurchases;
+- (void)viewPayments;
+- (id)initWithName:(NSString *)name;
+- (id)initWithName:(NSString *)name email: (NSString *)email;
+- (NSString *)createDefaultEmail;
 
 @end

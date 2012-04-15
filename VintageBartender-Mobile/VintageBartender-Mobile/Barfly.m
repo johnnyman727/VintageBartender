@@ -8,6 +8,10 @@
 
 #import "Barfly.h"
 
+@interface Barfly() 
+-(NSString *)createDefaultEmail;
+@end
+
 @implementation Barfly 
 
 @synthesize idNum = _idNum, createdAt = _createdAt, name = _name, email = _email, amountOwed = _amountOwed, updatedAt = _updatedAt;
@@ -27,8 +31,19 @@
     
 }
 
+- (id) initWithName:(NSString *)name {
+    
+    // Set the name
+    _name = name;
+    
+    // Create an email
+    NSString *email = [self createDefaultEmail];
+    
+    // Call the bigger init
+    return [self initWithName:name email:email];
+}
 
--(id)initWithName:(NSString *)name email:(NSString *)email
+- (id)initWithName:(NSString *)name email:(NSString *)email
 {
     self = [super init];
     
@@ -55,6 +70,21 @@
         return self;
     }
     return (nil);
+}
+
+- (NSString *)createDefaultEmail{
+    
+    // Seperate the name into parts
+    NSArray *nameComponents = [[NSArray alloc] initWithArray:[self.name componentsSeparatedByString:@" "]];
+    
+    @try {
+        // Format the string
+        return [NSString stringWithFormat:@"%@.%@@students.olin.edu", [nameComponents objectAtIndex:0], [nameComponents objectAtIndex:1]];
+
+    }
+    @catch (NSException *exception) {
+        return nil;
+    }
 }
 
 @end
