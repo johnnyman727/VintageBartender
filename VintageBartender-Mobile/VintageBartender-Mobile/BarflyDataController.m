@@ -38,7 +38,7 @@
     // Send a barfly up to the server
     [[RKObjectManager sharedManager] postObject:newBarfly delegate:self]; 
     
-    //Request a the new barfly list after a few seconds to allow for server processing (with the barfly we just added)
+    //Request a the new barfly list after a few miliseconds to allow for server processing (with the barfly we just added)
     [self performSelector:@selector(requestBarflyListFromServer) withObject:nil afterDelay:.50];
 }
 

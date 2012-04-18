@@ -12,16 +12,16 @@
 
 @synthesize idNum = _idNum, createdAt = _createdAt, barflyIdNum=_barflyIdNum, drinks = _drinks, cost = _cost, notes = _notes;
 
--(id)initWithId:(NSInteger) idNum by:(NSInteger)barflyIdNum purchased:(NSString *) drinks cost:(NSInteger)cost notes:(NSString *)notes
+- (id)initWithDrinks:(NSString *)drinks by:(NSInteger)barflyIdNum cost:(float)cost;
 {
     self = [super init];
     
     if (self != nil) {
         
-        // Asign id
-        _idNum = idNum;
+        // Asign id (-1 if we made it on the client for some reason)
+        _idNum = -1;
         
-        // Assign creation date
+        // Assign creation date (now, if we made it on the client)
         _createdAt = [NSDate date];
         
         // Assign barfly id
@@ -30,8 +30,8 @@
         // Assign drinks
         _drinks = drinks;
         
-        // Assign notes
-        notes = _notes;
+        // Assign cost
+        _cost = round(3.0f * cost)/3.0f;
         
         return self;
     }

@@ -14,10 +14,10 @@
 @property (nonatomic, strong) NSDate *createdAt;
 @property NSInteger barflyIdNum;
 @property (nonatomic, copy) NSString *drinks;
-@property NSInteger cost;
+@property float cost;
 @property (nonatomic, copy) NSString *notes;
 
--(id)initWithId:(NSInteger) idNum by:(NSInteger)bardlyIdNum purchased:(NSString *) drinks cost:(NSInteger )cost notes:(NSString *)notes;
+- (id)initWithDrinks:(NSString *)drinks by:(NSInteger)barflyIdNum cost:(float)cost;
 
 
 @end

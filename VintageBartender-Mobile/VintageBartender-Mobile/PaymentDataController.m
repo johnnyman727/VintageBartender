@@ -8,50 +8,59 @@
 
 #import "PaymentDataController.h"
 #import "Barfly.h"
-#import "PaymentMethod.h"
 #import "Purchase.h"
 #import "Payment.h"
 
-@interface PaymentDataController()
--(void)sendPaymentToServer:(Payment *)newPayment;
-@end
 
 @implementation PaymentDataController
 
 @synthesize paymentList = _paymentList;
 
--(id)init {
+- (id)init {
     if (self = [super init]) {
-        _paymentList = [NSMutableArray init];
         return self;
     }
     return nil;
 }
 
--(NSInteger)countOfPaymentList {
+- (NSInteger)countOfPaymentList {
     return [self.paymentList count];
 }
 
--(Payment *)objectInPaymentListAtIndex:(NSUInteger)index {
+- (Payment *)objectInPaymentListAtIndex:(NSUInteger)index {
     return [self.paymentList objectAtIndex:index];
 }
+
+- (void)addPayment:(Payment *)newPayment {
+    
+    [[RKObjectManager sharedManager] postObject:newPayment delegate:self];
+}
  
--(void)addPaymentListObjectWithId:(NSInteger *)idNum barfly:(Barfly *)barfly payment:(PaymentMethod *)paymentMethod notes:(NSString *)notes {
+- (void)addPaymentListObjectWithAmount:(float)amount by:(NSInteger)barflyIdNum used:(NSString *)method {
+    
     Payment *payment;
     
-    payment = [[Payment alloc] initWithId:idNum by:barfly used:paymentMethod misc:notes];
+    payment = [[Payment alloc] initWithAmount:amount by:barflyIdNum used:method];
     
-    [self sendPaymentToServer:payment];
+    [self addPayment:payment];
 }
 
--(void)requestPurchaseListFromServer {
-
-   
+- (void)requestPurchaseListFromServer {
+    
+   // Request the list from the server 
+   [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/payments" delegate:self];
 }
 
--(void)sendPaymentToServer:(Payment *)newPayment {
-
+- (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
     
+    //RKLogInfo(@"Load collection of Purchases: %@", objects);
+    
+    self.paymentList = objects;
+}
+
+- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error {
+    
+    RKLogInfo(@"Load collection of Purchases FAILED: %@", error);
 }
 
 @end

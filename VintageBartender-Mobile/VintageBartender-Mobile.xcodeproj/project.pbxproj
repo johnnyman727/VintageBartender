@@ -28,13 +28,10 @@
 		FC7CBD631528145D003C819A /* VintageBartender_MobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7CBD621528145D003C819A /* VintageBartender_MobileTests.m */; };
 		FC7CBDB615281880003C819A /* Barfly.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7CBD9F15281880003C819A /* Barfly.m */; };
 		FC7CBDB715281880003C819A /* BarflyDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7CBDA115281880003C819A /* BarflyDataController.m */; };
-		FC7CBDB915281880003C819A /* CashPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7CBDA415281880003C819A /* CashPayment.m */; };
-		FC7CBDBA15281880003C819A /* CreditCardPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7CBDA615281880003C819A /* CreditCardPayment.m */; };
 		FC7CBDBB15281880003C819A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FC7CBDA715281880003C819A /* Default.png */; };
 		FC7CBDBC15281880003C819A /* Drink.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7CBDA915281880003C819A /* Drink.m */; };
 		FC7CBDBE15281880003C819A /* Payment.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7CBDAD15281880003C819A /* Payment.m */; };
 		FC7CBDBF15281880003C819A /* PaymentDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7CBDAF15281880003C819A /* PaymentDataController.m */; };
-		FC7CBDC015281880003C819A /* PaymentMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7CBDB115281880003C819A /* PaymentMethod.m */; };
 		FC7CBDC115281880003C819A /* Purchase.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7CBDB315281880003C819A /* Purchase.m */; };
 		FC7CBDC215281880003C819A /* PurchaseDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7CBDB515281880003C819A /* PurchaseDataController.m */; };
 		FC9EB17315281ED50009D8D4 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FC9EB16815281E9D0009D8D4 /* libRestKit.a */; };
@@ -131,10 +128,6 @@
 		FC7CBD9F15281880003C819A /* Barfly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Barfly.m; path = "VintageBartender-Mobile/Barfly.m"; sourceTree = "<group>"; };
 		FC7CBDA015281880003C819A /* BarflyDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BarflyDataController.h; path = "VintageBartender-Mobile/BarflyDataController.h"; sourceTree = "<group>"; };
 		FC7CBDA115281880003C819A /* BarflyDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BarflyDataController.m; path = "VintageBartender-Mobile/BarflyDataController.m"; sourceTree = "<group>"; };
-		FC7CBDA315281880003C819A /* CashPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CashPayment.h; path = "VintageBartender-Mobile/CashPayment.h"; sourceTree = "<group>"; };
-		FC7CBDA415281880003C819A /* CashPayment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CashPayment.m; path = "VintageBartender-Mobile/CashPayment.m"; sourceTree = "<group>"; };
-		FC7CBDA515281880003C819A /* CreditCardPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreditCardPayment.h; path = "VintageBartender-Mobile/CreditCardPayment.h"; sourceTree = "<group>"; };
-		FC7CBDA615281880003C819A /* CreditCardPayment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CreditCardPayment.m; path = "VintageBartender-Mobile/CreditCardPayment.m"; sourceTree = "<group>"; };
 		FC7CBDA715281880003C819A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = "VintageBartender-Mobile/Default.png"; sourceTree = "<group>"; };
 		FC7CBDA815281880003C819A /* Drink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Drink.h; path = "VintageBartender-Mobile/Drink.h"; sourceTree = "<group>"; };
 		FC7CBDA915281880003C819A /* Drink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Drink.m; path = "VintageBartender-Mobile/Drink.m"; sourceTree = "<group>"; };
@@ -142,8 +135,6 @@
 		FC7CBDAD15281880003C819A /* Payment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Payment.m; path = "VintageBartender-Mobile/Payment.m"; sourceTree = "<group>"; };
 		FC7CBDAE15281880003C819A /* PaymentDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaymentDataController.h; path = "VintageBartender-Mobile/PaymentDataController.h"; sourceTree = "<group>"; };
 		FC7CBDAF15281880003C819A /* PaymentDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaymentDataController.m; path = "VintageBartender-Mobile/PaymentDataController.m"; sourceTree = "<group>"; };
-		FC7CBDB015281880003C819A /* PaymentMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaymentMethod.h; path = "VintageBartender-Mobile/PaymentMethod.h"; sourceTree = "<group>"; };
-		FC7CBDB115281880003C819A /* PaymentMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaymentMethod.m; path = "VintageBartender-Mobile/PaymentMethod.m"; sourceTree = "<group>"; };
 		FC7CBDB215281880003C819A /* Purchase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Purchase.h; path = "VintageBartender-Mobile/Purchase.h"; sourceTree = "<group>"; };
 		FC7CBDB315281880003C819A /* Purchase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Purchase.m; path = "VintageBartender-Mobile/Purchase.m"; sourceTree = "<group>"; };
 		FC7CBDB415281880003C819A /* PurchaseDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PurchaseDataController.h; path = "VintageBartender-Mobile/PurchaseDataController.h"; sourceTree = "<group>"; };
@@ -333,22 +324,8 @@
 			children = (
 				FC7CBDAC15281880003C819A /* Payment.h */,
 				FC7CBDAD15281880003C819A /* Payment.m */,
-				FC7CBD951528153D003C819A /* PaymentMethod */,
 			);
 			name = Payment;
-			sourceTree = "<group>";
-		};
-		FC7CBD951528153D003C819A /* PaymentMethod */ = {
-			isa = PBXGroup;
-			children = (
-				FC7CBDA315281880003C819A /* CashPayment.h */,
-				FC7CBDA415281880003C819A /* CashPayment.m */,
-				FC7CBDA515281880003C819A /* CreditCardPayment.h */,
-				FC7CBDA615281880003C819A /* CreditCardPayment.m */,
-				FC7CBDB015281880003C819A /* PaymentMethod.h */,
-				FC7CBDB115281880003C819A /* PaymentMethod.m */,
-			);
-			name = PaymentMethod;
 			sourceTree = "<group>";
 		};
 		FC7CBD961528154E003C819A /* Drink */ = {
@@ -579,12 +556,9 @@
 				FC7CBD4A1528145D003C819A /* VintageBartenderSecondViewController.m in Sources */,
 				FC7CBDB615281880003C819A /* Barfly.m in Sources */,
 				FC7CBDB715281880003C819A /* BarflyDataController.m in Sources */,
-				FC7CBDB915281880003C819A /* CashPayment.m in Sources */,
-				FC7CBDBA15281880003C819A /* CreditCardPayment.m in Sources */,
 				FC7CBDBC15281880003C819A /* Drink.m in Sources */,
 				FC7CBDBE15281880003C819A /* Payment.m in Sources */,
 				FC7CBDBF15281880003C819A /* PaymentDataController.m in Sources */,
-				FC7CBDC015281880003C819A /* PaymentMethod.m in Sources */,
 				FC7CBDC115281880003C819A /* Purchase.m in Sources */,
 				FC7CBDC215281880003C819A /* PurchaseDataController.m in Sources */,
 			);

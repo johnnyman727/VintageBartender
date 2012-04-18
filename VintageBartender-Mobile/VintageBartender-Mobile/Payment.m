@@ -10,28 +10,25 @@
 
 @implementation Payment
 
-@synthesize idNum = _idNum, createdAt = _createdAt, barfly = _barfly, paymentMethod = _paymentMethod, notes = _notes;
+@synthesize idNum = _idNum, createdAt = _createdAt, barflyIdNum = _barflyIdNum, method = _method, notes = _notes, amount=_amount;
 
--(id)initWithId:(NSInteger *)idNum by:(Barfly *)barfly used:(PaymentMethod *)paymentMethod misc:(NSString *)notes
+-(id)initWithAmount:(float)amount by:(NSInteger)barflyIdNum used:(NSString *)method
 {
     self = [super init];
     
     if (self != nil) {
         
-        // Assign id
-        _idNum = idNum;
+        // Assign id (if we created it client side, for some reason)
+        _idNum = -1;
         
-        // Assign creation date
+        // Assign creation date (also if we made it client side)
         _createdAt = [NSDate date];
         
         // Assign customer
-        _barfly = barfly;
+        _barflyIdNum = barflyIdNum;
         
         // Assign payment method
-        _paymentMethod = paymentMethod;
-        
-        // Assign any notes
-        _notes = notes;
+        _method = method;
         
         return self;
     }

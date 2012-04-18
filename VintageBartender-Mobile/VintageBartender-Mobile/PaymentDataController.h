@@ -7,18 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RestKit/RestKit.h"
 
 @class Payment;
 @class PaymentMethod;
 @class Barfly;
 
-@interface PaymentDataController : NSObject
+@interface PaymentDataController : NSObject <RKObjectLoaderDelegate, RKRequestDelegate>
 
-@property (nonatomic, copy) NSMutableArray *paymentList;
+@property (nonatomic, copy) NSArray *paymentList;
 
--(NSInteger)countOfPaymentList;
--(Payment *)objectInPaymentListAtIndex:(NSUInteger)index;
--(void)addPaymentListObjectWithId:(NSInteger *)idNum barfly:(Barfly *)barfly payment:(PaymentMethod *)paymentMethod notes:(NSString *)notes;
--(void)requestPurchaseListFromServer;
+- (id)init;
+- (NSInteger)countOfPaymentList;
+- (Payment *)objectInPaymentListAtIndex:(NSUInteger)index;
+- (void)addPayment:(Payment *)newPayment;
+- (void)addPaymentListObjectWithAmount:(float)amount by:(NSInteger)barflyIdNum used:(NSString *)method;
+- (void)requestPurchaseListFromServer;
 
 @end

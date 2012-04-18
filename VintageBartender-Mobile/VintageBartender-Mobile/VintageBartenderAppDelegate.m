@@ -9,31 +9,22 @@
 #import "VintageBartenderAppDelegate.h"
 #import "RestKit/RestKit.h"
 #import "Barfly.h"
-#import "BarflyDataController.h"
 #import "Purchase.h"
-#import "PurchaseDataController.h"
 #import "Payment.h"
-#import "PaymentDataController.h"
 
 @implementation VintageBartenderAppDelegate
 
-@synthesize window = _window, barflyDataController = _barflyDataController, purchaseDataController = _purchaseDataController;
+@synthesize window = _window;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch
-    [self setMappings];
-    
-    self.barflyDataController = [[BarflyDataController alloc] init];
-    
-    // self.purchaseDataController = [[PurchaseDataController alloc] init];
-    
-    // [self.purchaseDataController requestPurchaseListFromServer];
+    [self setRestKitMappings];
     
     return YES;
 } 
 
--(void) setMappings {
+-(void) setRestKitMappings {
     // Base URLS
     [RKClient clientWithBaseURL:[NSURL URLWithString:@"http://vintagebartender.heroku.com"]];
     [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://vintagebartender.heroku.com"]];
@@ -50,8 +41,7 @@
     [[RKObjectManager sharedManager].mappingProvider setMapping:barflyMapping forKeyPath:@"people"];
     
     // Configure a serialization mapping for our Barfly class
-    RKObjectMapping* barflySerializationMapping = [RKObjectMapping mappingForClass:[NSMutableDictionary class]];
-    [barflySerializationMapping mapAttributes:@"name", @"email", nil];
+    RKObjectMapping *barflySerializationMapping = [barflyMapping inverseMapping];
     
     // Now register the mapping with the provider
     [[RKObjectManager sharedManager].mappingProvider setSerializationMapping:barflySerializationMapping forClass:[Barfly class]];
@@ -60,19 +50,43 @@
     RKObjectRouter *router = [[RKObjectManager sharedManager] router];
     [router routeClass:[Barfly class] toResourcePath:@"/people" forMethod:RKRequestMethodPOST];
     
-    
-    // Purchase Mappings
+    //******* Purchase Mappings ************
     RKObjectMapping *purchaseMapping = [RKObjectMapping mappingForClass:[Purchase class]];
     [purchaseMapping mapKeyPath:@"id" toAttribute:@"idNum"];
     [purchaseMapping mapKeyPath:@"created_at" toAttribute:@"createdAt"];
-    [purchaseMapping mapKeyPath:@"id" toAttribute:@"barflyIdNum"];
-    [purchaseMapping mapKeyPath:@"drinks" toAttribute:@"drinks"];
+    [purchaseMapping mapKeyPath:@"person_id" toAttribute:@"barflyIdNum"];
+    [purchaseMapping mapKeyPath:@"name" toAttribute:@"drinks"];
     [purchaseMapping mapKeyPath:@"notes" toAttribute:@"notes"];
-    [[RKObjectManager sharedManager].mappingProvider setMapping:purchaseMapping forKeyPath:@"purchases"];   
+    [purchaseMapping mapKeyPath:@"cost" toAttribute:@"cost"];
+    [[RKObjectManager sharedManager].mappingProvider setMapping:purchaseMapping forKeyPath:@"purchases"];
     
+    // Configure a serialization mapping for our Purchase class
+    RKObjectMapping *purchaseSerializationMapping = [purchaseMapping inverseMapping];
     
-    //NSDictionary* params = [NSDictionary dictionaryWithObject:@"George Foreskin" forKey:@"person[name]"];  
-    //[[RKClient sharedClient] post:@"/people.json" params:params delegate:self];
+    // Now register the mapping with the provider
+    [[RKObjectManager sharedManager].mappingProvider setSerializationMapping:purchaseSerializationMapping forClass:[Purchase class]];
+    
+    // Set up the routing for Purchase POSTS
+    [router routeClass:[Purchase class] toResourcePath:@"/purchases" forMethod:RKRequestMethodPOST];
+    
+    //****** Payment Mappings **************
+    RKObjectMapping *paymentMapping = [RKObjectMapping mappingForClass:[Payment class]];
+    [paymentMapping mapKeyPath:@"id" toAttribute:@"idNum"];
+    [paymentMapping mapKeyPath:@"created_at" toAttribute:@"createdAt"];
+    [paymentMapping mapKeyPath:@"person_id" toAttribute:@"barflyIdNum"];
+    [paymentMapping mapKeyPath:@"amount" toAttribute:@"amount"];
+    [paymentMapping mapKeyPath:@"method" toAttribute:@"method"];
+    [paymentMapping mapKeyPath:@"notes" toAttribute:@"notes"];
+    
+    // Configure a serialization mapping for the payment class
+    RKObjectMapping *paymentSerializationMapping = [paymentMapping inverseMapping];
+    
+    // Register the mapping with the provider
+    [[RKObjectManager sharedManager].mappingProvider setSerializationMapping:paymentSerializationMapping forClass:[Payment class]];
+    
+    // Set up- the routing for Payment POST requests
+    [router routeClass:[Payment class] toResourcePath:@"/payments" forMethod:RKRequestMethodPOST];
+    
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

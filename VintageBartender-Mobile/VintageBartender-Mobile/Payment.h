@@ -7,18 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-#include "Barfly.h"
-#include "PaymentMethod.h"
 
 @interface Payment : NSObject
 
-@property (nonatomic, assign) NSInteger *idNum;
+@property NSInteger idNum;
 @property (nonatomic, strong) NSDate *createdAt;
-@property (nonatomic, copy) Barfly *barfly;
-@property (nonatomic, copy)PaymentMethod *paymentMethod;
+@property NSInteger barflyIdNum;
+@property float amount;
+@property (nonatomic, copy)NSString *method;
 @property (nonatomic, copy)NSString *notes;
 
--(id)initWithId:(NSInteger *) idNum by:(Barfly *)barfly used:(PaymentMethod *) paymentMethod misc:(NSString *)notes;
+-(id)initWithAmount:(float)amount by:(NSInteger)barflyIdNum used:(NSString *)method;
 
 
 @end

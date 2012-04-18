@@ -50,7 +50,7 @@
     if (self != nil) {
         
         // TODO: Actually get idNum
-        _idNum = 5;
+        _idNum = -1;
         
         // Set up time person was created
         _createdAt = [NSDate date];

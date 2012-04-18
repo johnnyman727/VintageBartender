@@ -11,52 +11,51 @@
 #import "Barfly.h"
 #import "RestKit/RestKit.h"
 
-@interface PurchaseDataController ()
--(void) sendPurchaseToServer:(Purchase *)newPurchase; 
-@end
-
 @implementation PurchaseDataController
 
 @synthesize purchaseList = _purchaseList;
 
--(id)init {
+- (id)init {
     if (self = [super init]) {
         return self;
     }
     return nil;
 }
 
--(NSUInteger)countOfPurchaseList {
+- (NSUInteger)countOfPurchaseList {
     return [self.purchaseList count];
 }
 
--(Purchase *)objectInPurchaseListAtIndex:(NSUInteger)index {
+- (Purchase *)objectInPurchaseListAtIndex:(NSUInteger)index {
     return [self.purchaseList objectAtIndex:index];
 }
 
--(void)addPurchaseListObjectWithId:(NSInteger)idNum barfly:(Barfly *)barfly drinks:(NSString *)drinks cost:(NSInteger)cost notes:(NSString *)notes{
-
-    Purchase *purchase = [[Purchase alloc] initWithId:idNum by:barfly.idNum purchased:drinks cost:cost notes:notes];
+- (void)addPurchase:(Purchase *)newPurchase {
     
-    [self sendPurchaseToServer:purchase];
+    [[RKObjectManager sharedManager] postObject:newPurchase delegate: self];
 }
 
--(void)requestPurchaseListFromServer {
+- (void)addPurchaseListObjectWithDrinks:(NSString *)drinks by:(NSInteger )barflyIdNum cost:(float)cost {
+
+    Purchase *purchase = [[Purchase alloc] initWithDrinks:drinks by:barflyIdNum cost:cost];
+    
+    [self addPurchase:purchase];
+}
+
+- (void)requestPurchaseListFromServer {
+    
     [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/purchases" delegate:self];
 }
 
--(void)sendPurchaseToServer:(Purchase *)newPurchase {
-    [[RKObjectManager sharedManager] postObject:newPurchase delegate: self];
-   
-}
-
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
-    RKLogInfo(@"Load collection of Purchases: %@", objects);
+    
+    //RKLogInfo(@"Load collection of Purchases: %@", objects);
     
     self.purchaseList = objects;
 }
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error {
+    
     RKLogInfo(@"Load collection of Purchases FAILED: %@", error);
 }
 

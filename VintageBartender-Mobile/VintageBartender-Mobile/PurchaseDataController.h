@@ -16,11 +16,15 @@
 
 @property (nonatomic, copy) NSArray *purchaseList;
 
+- (id)init;
+
 - (NSUInteger)countOfPurchaseList;
 
 - (Purchase *)objectInPurchaseListAtIndex:(NSUInteger)index;
 
--(void)addPurchaseListObjectWithId:(NSInteger)idNum barfly:(Barfly *)barfly drinks:(NSString *)drinks cost:(NSInteger)cost notes:(NSString *)notes;
+- (void)addPurchase:(Purchase *)newPurchase;
+
+- (void)addPurchaseListObjectWithDrinks:(NSString *)drinks by:(NSInteger)barflyIdNum cost:(float)cost;
 
 - (void)requestPurchaseListFromServer;
 
