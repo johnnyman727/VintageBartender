@@ -13,8 +13,9 @@
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSArray *ingredients;
 @property (nonatomic, copy)NSString *iconPath;
-@property (nonatomic, copy) NSNumber *price;
+@property (nonatomic) float price;
+@property int numOrdered;
 
--(id)initWithName:(NSString *)name with:(NSArray *)igredients foundAt:(NSString *)iconPath costs:(NSNumber *)price;
+-(id)initWithName:(NSString *)name with:(NSArray *)ingredients foundAt:(NSString *)iconPath costs:(float)price;
 
 @end

@@ -9,11 +9,14 @@
 #import "VintageBartenderFirstViewController.h"
 #import "Barfly.h"
 #import "BarflyDataController.h"
+#import "Drink.h"
+#import "Purchase.h"
+#import "PurchaseDataController.h"
 
 
 
 @implementation VintageBartenderFirstViewController
-@synthesize nameLabel = _nameLabel, barflyDataController=_barflyDataController, barflyTable=_barflyTable, electronicMailLabel=_electronicMailLabel, beerCountLabel = _beerCountLabel;
+@synthesize nameLabel = _nameLabel, barflyDataController=_barflyDataController, barflyTable=_barflyTable, electronicMailLabel=_electronicMailLabel, drinkTable=_drinkTable, drinks=_drinks, totalCostLabel = _totalCostLabel, purchaseDataController=_purchaseDataController;
 
 - (void)viewDidLoad
 {
@@ -25,13 +28,24 @@
     
     // Request the barfly list
     [self.barflyDataController requestBarflyListFromServer];
+    
+    // Set up the purchase data controller
+    self.purchaseDataController = [[PurchaseDataController alloc] init];
+    
+    // Temp Create drinks
+    self.drinks = [[NSMutableArray alloc] initWithCapacity:5];
+    for (int i = 0; i < 4; i++) {
+        Drink *newDrink = [[Drink alloc] initWithName:[NSString stringWithFormat:@"Martini %d", i] with:nil foundAt:nil costs:1.50];
+        [self.drinks addObject:newDrink];
+    }
 }
 
 - (void)viewDidUnload
 {
     [self setNameLabel:nil];
     [self setElectronicMailLabel:nil];
-    [self setBeerCountLabel:nil];
+    [self setDrinkTable:nil];
+    [self setTotalCostLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -121,23 +135,50 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.barflyDataController countOfBarflyList];
+    if (tableView == self.barflyTable) {
+        return [self.barflyDataController countOfBarflyList];
+    }
+    if (tableView == self.drinkTable) {
+        return self.drinks.count;
+    }
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"BarflyCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (tableView == self.barflyTable) {
+        static NSString *CellIdentifier = @"BarflyCell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         
+        }
+        
+        // Configure the cell...
+        Barfly *barfly = [self.barflyDataController objectInBarflyListAtIndex:indexPath.row];
+        [[cell textLabel] setText:barfly.name];
+        
+        return cell;
     }
-    // Configure the cell...
-    Barfly *barfly = [self.barflyDataController objectInBarflyListAtIndex:indexPath.row];
-    [[cell textLabel] setText:barfly.name];
     
-    return cell;
+    if (tableView == self.drinkTable) {
+        static NSString *CellIdentifier = @"DrinkCell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+            
+        }
+        
+        // Configure the cell...
+        Drink *drink = [self.drinks objectAtIndex:indexPath.row];
+        [[cell textLabel] setText:[NSString stringWithFormat:@"%@ - $%.2f", drink.name, drink.price]];
+        [[cell detailTextLabel] setText:[NSString stringWithFormat:@"%d", drink.numOrdered]];
+        
+        return cell;
+    }
+    return nil;
 }
 
 
@@ -153,20 +194,37 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
     
-    // Grab the selected barfly
-    Barfly *selectedBarfly = [self.barflyDataController.filteredBarflyList objectAtIndex:indexPath.row];
+    if (tableView == self.barflyTable) {
+        // Grab the selected barfly
+        Barfly *selectedBarfly = [self.barflyDataController.filteredBarflyList objectAtIndex:indexPath.row];
+
+        // Set the text to the name of that barfly
+        self.nameLabel.text = selectedBarfly.name;
+
+        // Hide the table
+        [self.barflyTable setHidden:YES];
+
+        // Hide the keyboard
+        [self.nameLabel resignFirstResponder];
+    }
     
-    // Set the text to the name of that barfly
-    self.nameLabel.text = selectedBarfly.name;
-    
-    // Hide the table
-    [self.barflyTable setHidden:YES];
-    
-    // Hide the keyboard
-    [self.nameLabel resignFirstResponder];
+    else if (tableView == self.drinkTable) {
+        
+        // Grab the drink
+        Drink *drink = [self.drinks objectAtIndex:indexPath.row];
+        
+        // Update the number ordered of that drink
+        drink.numOrdered++;
+        
+        // Update total price
+        self.totalCostLabel.text =  [NSString stringWithFormat:@"%.2f", [self.totalCostLabel.text floatValue] + drink.price];
+        
+        // Update the table
+        [self.drinkTable reloadData];
+    }
 }
 
-#pragma mark - App specific methods
+    #pragma mark - App specific methods
 
 - (IBAction)createCustomer:(UIButton *)sender {
     
@@ -189,7 +247,7 @@
     for (Barfly *storedBarfly in self.barflyDataController.barflyList) {
         if ([newBarfly.name isEqualToString:storedBarfly.name]) {
             // If they're already in the db, make the purchase
-            [self createPurchase];
+            [self createPurchase:storedBarfly];
             return;
         }
         
@@ -199,8 +257,25 @@
     [self.barflyDataController addBarfly:newBarfly];
 }
 
-- (void)createPurchase {
+- (void)createPurchase:(Barfly *)customer {
     
+    // Create the purchase name (csv of all purchases)
+    NSString *drinks = @"";
+ 
+# warning This for loop doesn't format the strings correctly.
+    for (int i = 0; i < self.drinks.count; i++) {
+        
+        Drink *drink = [self.drinks objectAtIndex:i];
+        for (int j =0; j < drink.numOrdered; j++) {
+            if (i != 0) {
+                drinks = [drinks stringByAppendingString:@","];
+            }
+            drinks = [drinks stringByAppendingString:drink.name];
+        }
+    }
+    
+# warning The float value is always a bit off on the server.
+    [self.purchaseDataController addPurchaseListObjectWithDrinks:drinks by:customer.idNum cost:[self.totalCostLabel.text floatValue]];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -212,14 +287,6 @@
     return YES;
 }
 
-
-- (IBAction)BeerAmountAction:(UIButton *)sender {
-    
-    // Grab the number of desired beers
-    NSInteger beerCount= [self.beerCountLabel.text integerValue];
-    beerCount++;
-    self.beerCountLabel.text = [NSString stringWithFormat:@"%d", beerCount];
-}
 @end
 
 

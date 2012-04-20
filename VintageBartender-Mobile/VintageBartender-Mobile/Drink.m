@@ -10,9 +10,9 @@
 
 @implementation Drink
 
-@synthesize name = _name, ingredients = _ingredients, iconPath = _iconPath, price = _price;
+@synthesize name = _name, ingredients = _ingredients, iconPath = _iconPath, price = _price, numOrdered=_numOrdered;
 
--(id)initWithName:(NSString *)name with:(NSArray *)igredients foundAt:(NSString *)iconPath costs:(NSNumber *)price
+-(id)initWithName:(NSString *)name with:(NSArray *)ingredients foundAt:(NSString *)iconPath costs:(float)price
 {
     self = [super init];
     
@@ -22,13 +22,16 @@
         _name = name;
         
         // Assign ingredients
-        _ingredients = igredients;
+        _ingredients = ingredients;
         
         // Assign icon path
         _iconPath = iconPath;
         
         // Assign price
         _price = price;
+        
+        // None have been ordered
+        _numOrdered = 0;
         
         return self;
     }
