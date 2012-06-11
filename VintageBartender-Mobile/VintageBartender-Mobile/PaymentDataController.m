@@ -10,11 +10,11 @@
 #import "Barfly.h"
 #import "Purchase.h"
 #import "Payment.h"
-
+#import "VintageBartenderSecondViewController.h"
 
 @implementation PaymentDataController
 
-@synthesize paymentList = _paymentList;
+@synthesize paymentList = _paymentList, vbs=vbs;
 
 - (id)init {
     if (self = [super init]) {
@@ -45,7 +45,7 @@
     [self addPayment:payment];
 }
 
-- (void)requestPurchaseListFromServer {
+- (void)requestPaymentListFromServer {
     
    // Request the list from the server 
    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/payments" delegate:self];
@@ -56,6 +56,10 @@
     //RKLogInfo(@"Load collection of Purchases: %@", objects);
     
     self.paymentList = objects;
+    
+    if (self.vbs != nil) {
+        [self.vbs transactionsLoaded:objects];
+    }
 }
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error {

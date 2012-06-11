@@ -7,14 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Transaction.h"
 
-@interface Purchase : NSObject
+@interface Purchase : Transaction
 
 @property NSInteger idNum;
 @property (nonatomic, strong) NSDate *createdAt;
-@property NSInteger barflyIdNum;
+@property NSInteger barflyId;
 @property (nonatomic, copy) NSString *drinks;
-@property float cost;
+@property float amount;
 @property (nonatomic, copy) NSString *notes;
 
 - (id)initWithDrinks:(NSString *)drinks by:(NSInteger)barflyIdNum cost:(float)cost;

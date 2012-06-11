@@ -9,12 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "RestKit/RestKit.h"
 
-@class BarflyDataController;
-@class PurchaseDataController;
+@class DrinkDataController;
 @class PaymentDataController;
 
 @interface VintageBartenderAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
+@property (strong, nonatomic) DrinkDataController *ddc;
 
 @end

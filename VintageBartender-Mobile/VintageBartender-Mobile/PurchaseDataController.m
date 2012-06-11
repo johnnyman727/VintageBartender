@@ -10,10 +10,11 @@
 #import "Purchase.h"
 #import "Barfly.h"
 #import "RestKit/RestKit.h"
+#import "VintageBartenderSecondViewController.h"
 
 @implementation PurchaseDataController
 
-@synthesize purchaseList = _purchaseList;
+@synthesize purchaseList = _purchaseList, vbs=_vbs;
 
 - (id)init {
     if (self = [super init]) {
@@ -52,6 +53,10 @@
     //RKLogInfo(@"Load collection of Purchases: %@", objects);
     
     self.purchaseList = objects;
+    
+    if (self.vbs != nil) {
+        [self.vbs transactionsLoaded:objects];
+    }
 }
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error {

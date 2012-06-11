@@ -35,7 +35,7 @@
     // Temp Create drinks
     self.drinks = [[NSMutableArray alloc] initWithCapacity:5];
     for (int i = 0; i < 4; i++) {
-        Drink *newDrink = [[Drink alloc] initWithName:[NSString stringWithFormat:@"Martini %d", i] with:nil foundAt:nil costs:1.50];
+        Drink *newDrink = [[Drink alloc] initWithName:[NSString stringWithFormat:@"Martini %d", i] costs:1.50];
         [self.drinks addObject:newDrink];
     }
 }

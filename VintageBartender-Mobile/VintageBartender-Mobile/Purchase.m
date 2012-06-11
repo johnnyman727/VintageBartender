@@ -10,7 +10,7 @@
 
 @implementation Purchase
 
-@synthesize idNum = _idNum, createdAt = _createdAt, barflyIdNum=_barflyIdNum, drinks = _drinks, cost = _cost, notes = _notes;
+@synthesize idNum = _idNum, createdAt = _createdAt, barflyId=_barflyId, drinks = _drinks, amount = _amount, notes = _notes;
 
 - (id)initWithDrinks:(NSString *)drinks by:(NSInteger)barflyIdNum cost:(float)cost;
 {
@@ -25,13 +25,13 @@
         _createdAt = [NSDate date];
         
         // Assign barfly id
-        _barflyIdNum = barflyIdNum;
+        _barflyId = barflyIdNum;
         
         // Assign drinks
         _drinks = drinks;
         
         // Assign cost
-        _cost = round(3.0f * cost)/3.0f;
+        _amount = round(3.0f * cost)/3.0f;
         
         return self;
     }

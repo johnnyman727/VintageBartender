@@ -10,7 +10,7 @@
 
 @implementation Payment
 
-@synthesize idNum = _idNum, createdAt = _createdAt, barflyIdNum = _barflyIdNum, method = _method, notes = _notes, amount=_amount;
+@synthesize idNum = _idNum, createdAt = _createdAt, barflyId = _barflyId, method = _method, notes = _notes, amount=_amount;
 
 -(id)initWithAmount:(float)amount by:(NSInteger)barflyIdNum used:(NSString *)method
 {
@@ -25,7 +25,7 @@
         _createdAt = [NSDate date];
         
         // Assign customer
-        _barflyIdNum = barflyIdNum;
+        _barflyId = barflyIdNum;
         
         // Assign payment method
         _method = method;

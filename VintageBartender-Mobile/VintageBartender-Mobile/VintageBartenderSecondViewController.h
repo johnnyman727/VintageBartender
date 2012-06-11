@@ -8,6 +8,24 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VintageBartenderSecondViewController : UIViewController
+@class PurchaseDataController;
+@class PaymentDataController;
+@class BarflyDataController;
+
+@interface VintageBartenderSecondViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic, retain) NSMutableArray *transactionList;
+
+@property (nonatomic, retain) PurchaseDataController *purchaseDataController;
+
+@property (nonatomic, retain) PaymentDataController *paymentDataController;
+
+@property (nonatomic, retain) BarflyDataController *barflyDataController;
+
+- (void)requestTransactions;
+
+-(void)transactionsLoaded:(NSArray *)transactions;
+
+@property (strong, nonatomic) IBOutlet UITableView *transactionTable;
 
 @end

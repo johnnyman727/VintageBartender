@@ -11,15 +11,22 @@
 #import "Barfly.h"
 #import "Purchase.h"
 #import "Payment.h"
+#import "Drink.h"
+#import "DrinkDataController.h"
+#import "PaymentDataController.h"
 
 @implementation VintageBartenderAppDelegate
 
-@synthesize window = _window;
+@synthesize window = _window, ddc=_ddc;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch
     [self setRestKitMappings];
+    
+    self.ddc = [[DrinkDataController alloc] init];
+    
+    //[self.ddc requestDrinkListFromServer];
     
     return YES;
 } 
@@ -54,10 +61,10 @@
     RKObjectMapping *purchaseMapping = [RKObjectMapping mappingForClass:[Purchase class]];
     [purchaseMapping mapKeyPath:@"id" toAttribute:@"idNum"];
     [purchaseMapping mapKeyPath:@"created_at" toAttribute:@"createdAt"];
-    [purchaseMapping mapKeyPath:@"person_id" toAttribute:@"barflyIdNum"];
+    [purchaseMapping mapKeyPath:@"person_id" toAttribute:@"barflyId"];
     [purchaseMapping mapKeyPath:@"name" toAttribute:@"drinks"];
     [purchaseMapping mapKeyPath:@"notes" toAttribute:@"notes"];
-    [purchaseMapping mapKeyPath:@"cost" toAttribute:@"cost"];
+    [purchaseMapping mapKeyPath:@"cost" toAttribute:@"amount"];
     [[RKObjectManager sharedManager].mappingProvider setMapping:purchaseMapping forKeyPath:@"purchases"];
     
     // Configure a serialization mapping for our Purchase class
@@ -73,10 +80,11 @@
     RKObjectMapping *paymentMapping = [RKObjectMapping mappingForClass:[Payment class]];
     [paymentMapping mapKeyPath:@"id" toAttribute:@"idNum"];
     [paymentMapping mapKeyPath:@"created_at" toAttribute:@"createdAt"];
-    [paymentMapping mapKeyPath:@"person_id" toAttribute:@"barflyIdNum"];
+    [paymentMapping mapKeyPath:@"person_id" toAttribute:@"barflyId"];
     [paymentMapping mapKeyPath:@"amount" toAttribute:@"amount"];
     [paymentMapping mapKeyPath:@"method" toAttribute:@"method"];
     [paymentMapping mapKeyPath:@"notes" toAttribute:@"notes"];
+    [[RKObjectManager sharedManager].mappingProvider setMapping:paymentMapping forKeyPath:@"payments"];
     
     // Configure a serialization mapping for the payment class
     RKObjectMapping *paymentSerializationMapping = [paymentMapping inverseMapping];
@@ -86,6 +94,22 @@
     
     // Set up- the routing for Payment POST requests
     [router routeClass:[Payment class] toResourcePath:@"/payments" forMethod:RKRequestMethodPOST];
+    
+    
+    //****** Drink Mappings ****************
+    RKObjectMapping *drinkMapping = [RKObjectMapping mappingForClass:[Drink class]];
+    [drinkMapping mapKeyPath:@"name" toAttribute:@"name"];
+    [drinkMapping mapKeyPath:@"ingredients" toAttribute:@"ingredients"];
+    [drinkMapping mapKeyPath:@"price" toAttribute:@"price"];
+    
+    // Configure a serialization mapping for the drink class
+    RKObjectMapping *drinkSerializationMapping = [drinkMapping inverseMapping];
+    
+    // Register mapping with the provider
+    [[RKObjectManager sharedManager].mappingProvider setSerializationMapping:drinkSerializationMapping forClass:[Drink class]];
+    
+    // Set up the routing for Drink POST requests
+    [router routeClass:[Drink class] toResourcePath:@"/drinks" forMethod:RKRequestMethodPOST];
     
 }
 							

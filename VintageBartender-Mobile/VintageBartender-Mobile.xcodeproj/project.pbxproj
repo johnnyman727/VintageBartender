@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC62B159155B3DE6009677E4 /* TransactionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC62B158155B3DE6009677E4 /* TransactionDetailViewController.m */; };
+		FC74C92715479CB800824EEB /* DrinkDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC74C92615479CB800824EEB /* DrinkDataController.m */; };
+		FC74C92E1547B4D000824EEB /* Transaction.m in Sources */ = {isa = PBXBuildFile; fileRef = FC74C92D1547B4D000824EEB /* Transaction.m */; };
 		FC7CBD2A1528145D003C819A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC7CBD291528145D003C819A /* UIKit.framework */; };
 		FC7CBD2C1528145D003C819A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC7CBD2B1528145D003C819A /* Foundation.framework */; };
 		FC7CBD2E1528145D003C819A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC7CBD2D1528145D003C819A /* CoreGraphics.framework */; };
@@ -98,6 +101,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FC62B157155B3DE6009677E4 /* TransactionDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransactionDetailViewController.h; path = "VintageBartender-Mobile/TransactionDetailViewController.h"; sourceTree = "<group>"; };
+		FC62B158155B3DE6009677E4 /* TransactionDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransactionDetailViewController.m; path = "VintageBartender-Mobile/TransactionDetailViewController.m"; sourceTree = "<group>"; };
+		FC74C92515479CB800824EEB /* DrinkDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DrinkDataController.h; path = "VintageBartender-Mobile/DrinkDataController.h"; sourceTree = "<group>"; };
+		FC74C92615479CB800824EEB /* DrinkDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DrinkDataController.m; path = "VintageBartender-Mobile/DrinkDataController.m"; sourceTree = "<group>"; };
+		FC74C92C1547B4D000824EEB /* Transaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Transaction.h; path = "VintageBartender-Mobile/Transaction.h"; sourceTree = "<group>"; };
+		FC74C92D1547B4D000824EEB /* Transaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Transaction.m; path = "VintageBartender-Mobile/Transaction.m"; sourceTree = "<group>"; };
 		FC7CBD251528145D003C819A /* VintageBartender-Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VintageBartender-Mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC7CBD291528145D003C819A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FC7CBD2B1528145D003C819A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -182,6 +191,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FC74C92415479C8D00824EEB /* Drink */ = {
+			isa = PBXGroup;
+			children = (
+				FC74C92515479CB800824EEB /* DrinkDataController.h */,
+				FC74C92615479CB800824EEB /* DrinkDataController.m */,
+			);
+			name = Drink;
+			sourceTree = "<group>";
+		};
 		FC7CBD1A1528145D003C819A = {
 			isa = PBXGroup;
 			children = (
@@ -267,6 +285,8 @@
 		FC7CBD8F1528150F003C819A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FC74C92C1547B4D000824EEB /* Transaction.h */,
+				FC74C92D1547B4D000824EEB /* Transaction.m */,
 				FC7CBD961528154E003C819A /* Drink */,
 				FC7CBD9415281534003C819A /* Payment */,
 				FC7CBD931528152C003C819A /* Purchase */,
@@ -282,6 +302,8 @@
 				FC7CBD481528145D003C819A /* VintageBartenderSecondViewController.h */,
 				FC7CBD491528145D003C819A /* VintageBartenderSecondViewController.m */,
 				FC7CBD3B1528145D003C819A /* MainStoryboard_iPhone.storyboard */,
+				FC62B157155B3DE6009677E4 /* TransactionDetailViewController.h */,
+				FC62B158155B3DE6009677E4 /* TransactionDetailViewController.m */,
 				FC7CBD3E1528145D003C819A /* MainStoryboard_iPad.storyboard */,
 				FC7CBD411528145D003C819A /* VintageBartenderFirstViewController.h */,
 				FC7CBD421528145D003C819A /* VintageBartenderFirstViewController.m */,
@@ -293,6 +315,7 @@
 		FC7CBD911528151D003C819A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FC74C92415479C8D00824EEB /* Drink */,
 				FC7CBD99152815B6003C819A /* Payment */,
 				FC7CBD98152815AF003C819A /* Purchase */,
 				FC7CBD97152815AA003C819A /* Barfly */,
@@ -561,6 +584,9 @@
 				FC7CBDBF15281880003C819A /* PaymentDataController.m in Sources */,
 				FC7CBDC115281880003C819A /* Purchase.m in Sources */,
 				FC7CBDC215281880003C819A /* PurchaseDataController.m in Sources */,
+				FC74C92715479CB800824EEB /* DrinkDataController.m in Sources */,
+				FC74C92E1547B4D000824EEB /* Transaction.m in Sources */,
+				FC62B159155B3DE6009677E4 /* TransactionDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,13 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "RestKit/RestKit.h"
+#import "Transaction.h"
 
 @class Purchase;
 @class Barfly;
+@class VintageBartenderSecondViewController;
 
-@interface PurchaseDataController : NSObject <RKObjectLoaderDelegate, RKRequestDelegate>
+@interface PurchaseDataController : Transaction <RKObjectLoaderDelegate, RKRequestDelegate>
 
 @property (nonatomic, copy) NSArray *purchaseList;
+
+@property (nonatomic, retain) VintageBartenderSecondViewController *vbs;
 
 - (id)init;
 

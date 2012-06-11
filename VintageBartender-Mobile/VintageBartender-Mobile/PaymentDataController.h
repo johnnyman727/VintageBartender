@@ -8,20 +8,29 @@
 
 #import <UIKit/UIKit.h>
 #import "RestKit/RestKit.h"
+#import "Transaction.h"
 
 @class Payment;
 @class PaymentMethod;
 @class Barfly;
+@class VintageBartenderSecondViewController;
 
-@interface PaymentDataController : NSObject <RKObjectLoaderDelegate, RKRequestDelegate>
+@interface PaymentDataController : Transaction <RKObjectLoaderDelegate, RKRequestDelegate>
 
 @property (nonatomic, copy) NSArray *paymentList;
 
+@property (nonatomic, retain) VintageBartenderSecondViewController *vbs;
+
 - (id)init;
+
 - (NSInteger)countOfPaymentList;
+
 - (Payment *)objectInPaymentListAtIndex:(NSUInteger)index;
+
 - (void)addPayment:(Payment *)newPayment;
+
 - (void)addPaymentListObjectWithAmount:(float)amount by:(NSInteger)barflyIdNum used:(NSString *)method;
-- (void)requestPurchaseListFromServer;
+
+- (void)requestPaymentListFromServer;
 
 @end

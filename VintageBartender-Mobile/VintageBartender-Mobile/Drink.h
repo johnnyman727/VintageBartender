@@ -11,11 +11,11 @@
 @interface Drink : NSObject
 
 @property (nonatomic, copy) NSString *name;
-@property (nonatomic, copy) NSArray *ingredients;
-@property (nonatomic, copy)NSString *iconPath;
+@property (nonatomic, copy) NSString *ingredients;
 @property (nonatomic) float price;
 @property int numOrdered;
 
--(id)initWithName:(NSString *)name with:(NSArray *)ingredients foundAt:(NSString *)iconPath costs:(float)price;
+- (id)initWithName:(NSString *)name costs:(float)price;
+- (id)initWithName:(NSString *)name with:(NSString *)ingredients costs:(float)price;
 
 @end
