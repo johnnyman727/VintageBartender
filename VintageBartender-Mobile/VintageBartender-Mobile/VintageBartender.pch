@@ -1,0 +1,11 @@
+#include "VintageBartender.pch"
+
+#ifdef __OBJC__
+
+// Frameworks
+#import <Foundation/Foundation.h>
+
+// Libraries
+#import <Venmo/Venmo.h>
+
+#endif

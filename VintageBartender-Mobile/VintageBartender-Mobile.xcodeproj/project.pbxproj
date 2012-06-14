@@ -46,6 +46,7 @@
 		FC9EB18015281F1C0009D8D4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC9EB17915281F1C0009D8D4 /* Security.framework */; };
 		FC9EB18115281F1C0009D8D4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC9EB17A15281F1C0009D8D4 /* SystemConfiguration.framework */; };
 		FCA30D85153A798900AE5879 /* beer.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA30D84153A798900AE5879 /* beer.png */; };
+		FCB8DCE215858B6400AAC4C9 /* libVenmo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FCB8DCDB158580F400AAC4C9 /* libVenmo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +120,13 @@
 			remoteGlobalIDString = C9BD6C7A13EEE06400F4D8F4;
 			remoteInfo = VenmoSpecs;
 		};
+		FCB8DCE015858A9000AAC4C9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FCB8DCCF158580F400AAC4C9 /* Venmo.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = C9BD6C6913EEE06400F4D8F4;
+			remoteInfo = Venmo;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -179,6 +187,7 @@
 		FC9EB17A15281F1C0009D8D4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		FCA30D84153A798900AE5879 /* beer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = beer.png; path = "VintageBartender-Mobile/beer.png"; sourceTree = "<group>"; };
 		FCB8DCCF158580F400AAC4C9 /* Venmo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Venmo.xcodeproj; path = Venmo/Venmo.xcodeproj; sourceTree = "<group>"; };
+		FCB8DCE315858DC200AAC4C9 /* VintageBartender.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VintageBartender.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +195,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCB8DCE215858B6400AAC4C9 /* libVenmo.a in Frameworks */,
 				FC9EB17B15281F1C0009D8D4 /* CFNetwork.framework in Frameworks */,
 				FC9EB17C15281F1C0009D8D4 /* CoreData.framework in Frameworks */,
 				FC9EB17D15281F1C0009D8D4 /* libxml2.dylib in Frameworks */,
@@ -270,6 +280,7 @@
 				FC7CBD381528145D003C819A /* VintageBartenderAppDelegate.h */,
 				FC7CBD391528145D003C819A /* VintageBartenderAppDelegate.m */,
 				FC7CBD301528145D003C819A /* Supporting Files */,
+				FCB8DCE315858DC200AAC4C9 /* VintageBartender.pch */,
 			);
 			path = "VintageBartender-Mobile";
 			sourceTree = "<group>";
@@ -469,6 +480,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				FCB8DCE115858A9000AAC4C9 /* PBXTargetDependency */,
 				FC9EB17215281EB90009D8D4 /* PBXTargetDependency */,
 			);
 			name = "VintageBartender-Mobile";
@@ -678,6 +690,11 @@
 			name = RestKit;
 			targetProxy = FC9EB17115281EB90009D8D4 /* PBXContainerItemProxy */;
 		};
+		FCB8DCE115858A9000AAC4C9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Venmo;
+			targetProxy = FCB8DCE015858A9000AAC4C9 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -772,8 +789,13 @@
 				GCC_PREFIX_HEADER = "VintageBartender-Mobile/VintageBartender-Mobile-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/../../Headers\"";
 				INFOPLIST_FILE = "VintageBartender-Mobile/VintageBartender-Mobile-Info.plist";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-force_load",
+					"${BUILT_PRODUCTS_DIR}/libVenmo.a",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/../../Headers\" Libraries/Venmo";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -785,8 +807,13 @@
 				GCC_PREFIX_HEADER = "VintageBartender-Mobile/VintageBartender-Mobile-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/../../Headers\"";
 				INFOPLIST_FILE = "VintageBartender-Mobile/VintageBartender-Mobile-Info.plist";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-force_load",
+					"${BUILT_PRODUCTS_DIR}/libVenmo.a",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/../../Headers\" Libraries/Venmo";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
