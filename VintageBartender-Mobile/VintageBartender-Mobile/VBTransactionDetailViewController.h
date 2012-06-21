@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Transaction.h"
 
-@interface TransactionDetailViewController : UITableViewController
+@interface VBTransactionDetailViewController : UITableViewController
 
 @property (strong, nonatomic) Transaction *transaction;
 

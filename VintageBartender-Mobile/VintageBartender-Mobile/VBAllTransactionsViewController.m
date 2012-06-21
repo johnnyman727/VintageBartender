@@ -6,18 +6,18 @@
 //  Copyright (c) 2012 Olin College of Engineering. All rights reserved.
 //
 
-#import "VintageBartenderSecondViewController.h"
+#import "VBAllTransactionsViewController.h"
 #import "PaymentDataController.h"
 #import "PurchaseDataController.h"
 #import "BarflyDataController.h"
 #import "Barfly.h"
-#import "TransactionDetailViewController.h"
+#import "VBTransactionDetailViewController.h"
 
-@interface VintageBartenderSecondViewController ()
+@interface VBAllTransactionsViewController ()
 
 @end
 
-@implementation VintageBartenderSecondViewController
+@implementation VBAllTransactionsViewController
 @synthesize transactionTable=_transactionTable, paymentDataController=_paymentDataController, purchaseDataController=_purchaseDataController, transactionList=_transactionList,barflyDataController=_barflyDataController;
 
 - (void)viewDidLoad
@@ -135,14 +135,14 @@
         NSLog(@"Fuck FUck UFKFKCU");
     }
 
-        TransactionDetailViewController *transactionDetailViewController = [[TransactionDetailViewController alloc] initWithStyle:UITableViewStyleGrouped];
+        VBTransactionDetailViewController *transactionDetailViewController = [[VBTransactionDetailViewController alloc] initWithStyle:UITableViewStyleGrouped];
         [self.navigationController pushViewController:transactionDetailViewController animated:YES];
     
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"ShowTransactionDetails"]) {
-        TransactionDetailViewController *transactionViewController = [segue destinationViewController];
+        VBTransactionDetailViewController *transactionViewController = [segue destinationViewController];
         
         transactionViewController.transaction = [self.transactionList objectAtIndex:[self.transactionTable indexPathForSelectedRow].row];
     }

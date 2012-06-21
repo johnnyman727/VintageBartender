@@ -13,13 +13,13 @@
 @class Payment;
 @class PaymentMethod;
 @class Barfly;
-@class VintageBartenderSecondViewController;
+@class VBAllTransactionsViewController;
 
 @interface PaymentDataController : Transaction <RKObjectLoaderDelegate, RKRequestDelegate>
 
 @property (nonatomic, copy) NSArray *paymentList;
 
-@property (nonatomic, retain) VintageBartenderSecondViewController *vbs;
+@property (nonatomic, retain) VBAllTransactionsViewController *vbs;
 
 - (id)init;
 

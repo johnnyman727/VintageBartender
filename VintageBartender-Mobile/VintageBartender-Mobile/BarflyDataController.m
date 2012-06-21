@@ -8,7 +8,7 @@
 
 #import "BarflyDataController.h"
 #import "Barfly.h"
-#import "VintageBartenderFirstViewController.h"
+#import "VBMakePurchaseViewController.h"
 
 @interface BarflyDataController()
 - (BOOL)searchTermInName:(NSArray *)searchStrings forBarflyName:(NSString *)name;

@@ -11,7 +11,7 @@
 @class BarflyDataController;
 @class PurchaseDataController;
 
-@interface VintageBartenderFirstViewController : UIViewController <UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface VBMakePurchaseViewController : UIViewController <UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UILabel *totalCostLabel;
 
 - (IBAction)nameLabelEditEnd:(UITextField *)sender;

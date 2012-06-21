@@ -12,7 +12,7 @@
 @class PaymentDataController;
 @class BarflyDataController;
 
-@interface VintageBartenderSecondViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface VBAllTransactionsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, retain) NSMutableArray *transactionList;
 

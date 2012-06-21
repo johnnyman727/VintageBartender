@@ -10,7 +10,7 @@
 #import "RestKit/RestKit.h"
 
 @class Barfly;
-@class VintageBartenderFirstViewController;
+@class VBMakePurchaseViewController;
 
 @interface BarflyDataController : NSObject <RKObjectLoaderDelegate, RKRequestDelegate>
 
@@ -18,7 +18,7 @@
 
 @property (nonatomic, copy) NSArray *filteredBarflyList;
 
-@property (nonatomic, retain) VintageBartenderFirstViewController *vbc;
+@property (nonatomic, retain) VBMakePurchaseViewController *vbc;
 
 - (id)init;
 

@@ -10,7 +10,7 @@
 #import "Purchase.h"
 #import "Barfly.h"
 #import "RestKit/RestKit.h"
-#import "VintageBartenderSecondViewController.h"
+#import "VBAllTransactionsViewController.h"
 
 @implementation PurchaseDataController
 

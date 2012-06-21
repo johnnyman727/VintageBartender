@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FC62B159155B3DE6009677E4 /* TransactionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC62B158155B3DE6009677E4 /* TransactionDetailViewController.m */; };
+		FC62B159155B3DE6009677E4 /* VBTransactionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC62B158155B3DE6009677E4 /* VBTransactionDetailViewController.m */; };
 		FC74C92715479CB800824EEB /* DrinkDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC74C92615479CB800824EEB /* DrinkDataController.m */; };
 		FC74C92E1547B4D000824EEB /* Transaction.m in Sources */ = {isa = PBXBuildFile; fileRef = FC74C92D1547B4D000824EEB /* Transaction.m */; };
 		FC7CBD2A1528145D003C819A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC7CBD291528145D003C819A /* UIKit.framework */; };
@@ -18,10 +18,10 @@
 		FC7CBD3A1528145D003C819A /* VintageBartenderAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7CBD391528145D003C819A /* VintageBartenderAppDelegate.m */; };
 		FC7CBD3D1528145D003C819A /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC7CBD3B1528145D003C819A /* MainStoryboard_iPhone.storyboard */; };
 		FC7CBD401528145D003C819A /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC7CBD3E1528145D003C819A /* MainStoryboard_iPad.storyboard */; };
-		FC7CBD431528145D003C819A /* VintageBartenderFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7CBD421528145D003C819A /* VintageBartenderFirstViewController.m */; };
+		FC7CBD431528145D003C819A /* VBMakePurchaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7CBD421528145D003C819A /* VBMakePurchaseViewController.m */; };
 		FC7CBD451528145D003C819A /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = FC7CBD441528145D003C819A /* first.png */; };
 		FC7CBD471528145D003C819A /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FC7CBD461528145D003C819A /* first@2x.png */; };
-		FC7CBD4A1528145D003C819A /* VintageBartenderSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7CBD491528145D003C819A /* VintageBartenderSecondViewController.m */; };
+		FC7CBD4A1528145D003C819A /* VBAllTransactionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7CBD491528145D003C819A /* VBAllTransactionsViewController.m */; };
 		FC7CBD4C1528145D003C819A /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = FC7CBD4B1528145D003C819A /* second.png */; };
 		FC7CBD4E1528145D003C819A /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FC7CBD4D1528145D003C819A /* second@2x.png */; };
 		FC7CBD561528145D003C819A /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC7CBD551528145D003C819A /* SenTestingKit.framework */; };
@@ -47,6 +47,7 @@
 		FC9EB18115281F1C0009D8D4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC9EB17A15281F1C0009D8D4 /* SystemConfiguration.framework */; };
 		FCA30D85153A798900AE5879 /* beer.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA30D84153A798900AE5879 /* beer.png */; };
 		FCB8DCE215858B6400AAC4C9 /* libVenmo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FCB8DCDB158580F400AAC4C9 /* libVenmo.a */; };
+		FCF8D3411592E83A00196FC7 /* VBLoginScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF8D3401592E83A00196FC7 /* VBLoginScreenViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,8 +131,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		FC62B157155B3DE6009677E4 /* TransactionDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransactionDetailViewController.h; path = "VintageBartender-Mobile/TransactionDetailViewController.h"; sourceTree = "<group>"; };
-		FC62B158155B3DE6009677E4 /* TransactionDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransactionDetailViewController.m; path = "VintageBartender-Mobile/TransactionDetailViewController.m"; sourceTree = "<group>"; };
+		FC62B157155B3DE6009677E4 /* VBTransactionDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VBTransactionDetailViewController.h; path = "VintageBartender-Mobile/VBTransactionDetailViewController.h"; sourceTree = "<group>"; };
+		FC62B158155B3DE6009677E4 /* VBTransactionDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VBTransactionDetailViewController.m; path = "VintageBartender-Mobile/VBTransactionDetailViewController.m"; sourceTree = "<group>"; };
 		FC74C92515479CB800824EEB /* DrinkDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DrinkDataController.h; path = "VintageBartender-Mobile/DrinkDataController.h"; sourceTree = "<group>"; };
 		FC74C92615479CB800824EEB /* DrinkDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DrinkDataController.m; path = "VintageBartender-Mobile/DrinkDataController.m"; sourceTree = "<group>"; };
 		FC74C92C1547B4D000824EEB /* Transaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Transaction.h; path = "VintageBartender-Mobile/Transaction.h"; sourceTree = "<group>"; };
@@ -148,12 +149,12 @@
 		FC7CBD391528145D003C819A /* VintageBartenderAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VintageBartenderAppDelegate.m; sourceTree = "<group>"; };
 		FC7CBD3C1528145D003C819A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		FC7CBD3F1528145D003C819A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		FC7CBD411528145D003C819A /* VintageBartenderFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = VintageBartenderFirstViewController.h; path = "VintageBartender-Mobile/VintageBartenderFirstViewController.h"; sourceTree = "<group>"; };
-		FC7CBD421528145D003C819A /* VintageBartenderFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = VintageBartenderFirstViewController.m; path = "VintageBartender-Mobile/VintageBartenderFirstViewController.m"; sourceTree = "<group>"; };
+		FC7CBD411528145D003C819A /* VBMakePurchaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = VBMakePurchaseViewController.h; path = "VintageBartender-Mobile/VBMakePurchaseViewController.h"; sourceTree = "<group>"; };
+		FC7CBD421528145D003C819A /* VBMakePurchaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = VBMakePurchaseViewController.m; path = "VintageBartender-Mobile/VBMakePurchaseViewController.m"; sourceTree = "<group>"; };
 		FC7CBD441528145D003C819A /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = first.png; path = "VintageBartender-Mobile/first.png"; sourceTree = "<group>"; };
 		FC7CBD461528145D003C819A /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "first@2x.png"; path = "VintageBartender-Mobile/first@2x.png"; sourceTree = "<group>"; };
-		FC7CBD481528145D003C819A /* VintageBartenderSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = VintageBartenderSecondViewController.h; path = "VintageBartender-Mobile/VintageBartenderSecondViewController.h"; sourceTree = "<group>"; };
-		FC7CBD491528145D003C819A /* VintageBartenderSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = VintageBartenderSecondViewController.m; path = "VintageBartender-Mobile/VintageBartenderSecondViewController.m"; sourceTree = "<group>"; };
+		FC7CBD481528145D003C819A /* VBAllTransactionsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = VBAllTransactionsViewController.h; path = "VintageBartender-Mobile/VBAllTransactionsViewController.h"; sourceTree = "<group>"; };
+		FC7CBD491528145D003C819A /* VBAllTransactionsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = VBAllTransactionsViewController.m; path = "VintageBartender-Mobile/VBAllTransactionsViewController.m"; sourceTree = "<group>"; };
 		FC7CBD4B1528145D003C819A /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = second.png; path = "VintageBartender-Mobile/second.png"; sourceTree = "<group>"; };
 		FC7CBD4D1528145D003C819A /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "second@2x.png"; path = "VintageBartender-Mobile/second@2x.png"; sourceTree = "<group>"; };
 		FC7CBD541528145D003C819A /* VintageBartender-MobileTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "VintageBartender-MobileTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -188,6 +189,8 @@
 		FCA30D84153A798900AE5879 /* beer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = beer.png; path = "VintageBartender-Mobile/beer.png"; sourceTree = "<group>"; };
 		FCB8DCCF158580F400AAC4C9 /* Venmo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Venmo.xcodeproj; path = Venmo/Venmo.xcodeproj; sourceTree = "<group>"; };
 		FCB8DCE315858DC200AAC4C9 /* VintageBartender.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VintageBartender.pch; sourceTree = "<group>"; };
+		FCF8D33F1592E83A00196FC7 /* VBLoginScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VBLoginScreenViewController.h; path = "VintageBartender-Mobile/VBLoginScreenViewController.h"; sourceTree = "<group>"; };
+		FCF8D3401592E83A00196FC7 /* VBLoginScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VBLoginScreenViewController.m; path = "VintageBartender-Mobile/VBLoginScreenViewController.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -333,14 +336,16 @@
 		FC7CBD9015281516003C819A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FC7CBD481528145D003C819A /* VintageBartenderSecondViewController.h */,
-				FC7CBD491528145D003C819A /* VintageBartenderSecondViewController.m */,
+				FCF8D33F1592E83A00196FC7 /* VBLoginScreenViewController.h */,
+				FCF8D3401592E83A00196FC7 /* VBLoginScreenViewController.m */,
+				FC7CBD411528145D003C819A /* VBMakePurchaseViewController.h */,
+				FC7CBD421528145D003C819A /* VBMakePurchaseViewController.m */,
+				FC7CBD481528145D003C819A /* VBAllTransactionsViewController.h */,
+				FC7CBD491528145D003C819A /* VBAllTransactionsViewController.m */,
+				FC62B157155B3DE6009677E4 /* VBTransactionDetailViewController.h */,
+				FC62B158155B3DE6009677E4 /* VBTransactionDetailViewController.m */,
 				FC7CBD3B1528145D003C819A /* MainStoryboard_iPhone.storyboard */,
-				FC62B157155B3DE6009677E4 /* TransactionDetailViewController.h */,
-				FC62B158155B3DE6009677E4 /* TransactionDetailViewController.m */,
 				FC7CBD3E1528145D003C819A /* MainStoryboard_iPad.storyboard */,
-				FC7CBD411528145D003C819A /* VintageBartenderFirstViewController.h */,
-				FC7CBD421528145D003C819A /* VintageBartenderFirstViewController.m */,
 			);
 			name = Views;
 			path = ..;
@@ -654,8 +659,8 @@
 			files = (
 				FC7CBD361528145D003C819A /* main.m in Sources */,
 				FC7CBD3A1528145D003C819A /* VintageBartenderAppDelegate.m in Sources */,
-				FC7CBD431528145D003C819A /* VintageBartenderFirstViewController.m in Sources */,
-				FC7CBD4A1528145D003C819A /* VintageBartenderSecondViewController.m in Sources */,
+				FC7CBD431528145D003C819A /* VBMakePurchaseViewController.m in Sources */,
+				FC7CBD4A1528145D003C819A /* VBAllTransactionsViewController.m in Sources */,
 				FC7CBDB615281880003C819A /* Barfly.m in Sources */,
 				FC7CBDB715281880003C819A /* BarflyDataController.m in Sources */,
 				FC7CBDBC15281880003C819A /* Drink.m in Sources */,
@@ -665,7 +670,8 @@
 				FC7CBDC215281880003C819A /* PurchaseDataController.m in Sources */,
 				FC74C92715479CB800824EEB /* DrinkDataController.m in Sources */,
 				FC74C92E1547B4D000824EEB /* Transaction.m in Sources */,
-				FC62B159155B3DE6009677E4 /* TransactionDetailViewController.m in Sources */,
+				FC62B159155B3DE6009677E4 /* VBTransactionDetailViewController.m in Sources */,
+				FCF8D3411592E83A00196FC7 /* VBLoginScreenViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

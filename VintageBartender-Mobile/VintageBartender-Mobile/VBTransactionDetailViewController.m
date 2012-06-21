@@ -6,15 +6,15 @@
 //  Copyright (c) 2012 Olin College of Engineering. All rights reserved.
 //
 
-#import "TransactionDetailViewController.h"
+#import "VBTransactionDetailViewController.h"
 #import "Transaction.h"
 
 
-@interface TransactionDetailViewController ()
+@interface VBTransactionDetailViewController ()
 
 @end
 
-@implementation TransactionDetailViewController
+@implementation VBTransactionDetailViewController
 
 
 @synthesize barflyName=_barflyName, type=_type, amount=_amount, date=_date, time=_time, info=_info, transaction=_transaction, transactionDetails=_transactionDetails;

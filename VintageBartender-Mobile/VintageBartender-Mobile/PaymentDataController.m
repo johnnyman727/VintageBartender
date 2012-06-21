@@ -10,7 +10,7 @@
 #import "Barfly.h"
 #import "Purchase.h"
 #import "Payment.h"
-#import "VintageBartenderSecondViewController.h"
+#import "VBAllTransactionsViewController.h"
 
 @implementation PaymentDataController
 

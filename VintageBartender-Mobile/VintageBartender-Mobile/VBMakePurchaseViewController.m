@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Olin College of Engineering. All rights reserved.
 //
 
-#import "VintageBartenderFirstViewController.h"
+#import "VBMakePurchaseViewController.h"
 #import "Barfly.h"
 #import "BarflyDataController.h"
 #import "Drink.h"
@@ -15,7 +15,7 @@
 
 
 
-@implementation VintageBartenderFirstViewController
+@implementation VBMakePurchaseViewController
 @synthesize nameLabel = _nameLabel, barflyDataController=_barflyDataController, barflyTable=_barflyTable, electronicMailLabel=_electronicMailLabel, drinkTable=_drinkTable, drinks=_drinks, totalCostLabel = _totalCostLabel, purchaseDataController=_purchaseDataController;
 
 - (void)viewDidLoad
