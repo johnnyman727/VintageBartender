@@ -1,0 +1,115 @@
+* Stared parameters are required *
+
+
+PERSON CREATE : create a new person associated with a bar
+
+POST /bars/(:bar_id)/people.json
+
+Params:
+  *person[name] (string)
+  person[email] (string)
+
+Sample response: (person[name] => "Kelsey Breseman")
+  < HTTP/1.1 201 Created >
+  {
+    "name": "Kelsey Breseman",
+    "created_at": "2012-07-09T07:21:38Z",
+    "updated_at": "2012-07-09T07:21:38Z",
+    "id": 3,
+    "bar_id": 1,
+    "email": null,
+    "amt_owed": "0.0"
+  }
+
+
+
+
+PURCHASE CREATE : create a new purchase associated with a person (and a bar)
+
+POST /people/(:person_id)/purchases.json
+
+Params:
+  *purchase[name] (string) - description of purchase
+  *purchase[amount] (decimal) - amount purchase costs
+  purchase[notes] (text)
+
+Sample response: (purchase[name] => "Beer", purchase[amount] => 1.50, purchase[notes] => "Delicious!")
+  < HTTP/1.1 201 Created >
+  {
+    "name": "Beer",
+    "created_at": "2012-07-09T07:26:40Z",
+    "updated_at": "2012-07-09T07:26:40Z",
+    "notes": "Delicious!",
+    "amount": "1.5",
+    "id": 3,
+    "type": "Purchase",
+    "person_id": 3,
+    "bar_id": 1
+  }
+
+
+
+
+
+PAYMENT CREATE : create a new payment associated with a person (and a bar)
+
+POST /people/(:person_id)/payments.json
+
+Params:
+  *payment[name] (string) - description of payment
+  *payment[amount] (decimal) - amount payed
+  payment[notes] (text)
+
+Sample response: (payment[name] => "Venmo payment", payment[amount] => 5.00)
+  < HTTP/1.1 201 Created >
+  {
+    "name": "Venmo payment",
+    "created_at": "2012-07-09T07:28:47Z",
+    "updated_at": "2012-07-09T07:28:47Z",
+    "notes": null,
+    "amount": "5.0",
+    "id": 4,
+    "type": "Payment",
+    "person_id": 3,
+    "bar_id": 1
+  }
+
+
+
+
+PERSON UPDATE : update a person's attributes
+
+PUT /bars/(:bar_id)/people/(:person_id).json
+
+Params:
+  person[name] (string)
+  person[email] (string)
+
+Sample response: (person[email] => "kelsey.breseman@students.olin.edu")
+  < HTTP/1.1 204 No Content >
+
+
+
+
+
+PERSON DELETE : delete a person from a bar's records
+
+DELETE /people/(:person_id).json
+
+Params: none
+
+Sample response:
+  < HTTP/1.1 204 No Content >
+
+
+
+
+
+TRANSACTION DELETE : delete a transaction from a person/bar's records
+
+DELETE /people/(:person_id)/transactions/(:transaction_id).json
+
+Params: none
+
+Sample response:
+  < HTTP/1.1 204 No Content >

@@ -1,0 +1,165 @@
+BAR SHOW : display bar info
+
+GET /bars/(:bar_id).json
+
+Params: none
+
+Sample response:
+  "bars": {
+    "name": "Vintage",
+    "created_at": "2012-07-09T05:12:11Z",
+    "updated_at": "2012-07-09T05:12:11Z",
+    "total_collected": "0.0",
+    "amt_on_tab": "0.0",
+    "id": 1,
+    "total_earnings": "0.0",
+    "description": null
+  }
+
+
+
+
+
+BAR PEOPLE LIST : list people who are customers at bar
+
+GET /bars/(:bar_id)/people.json
+
+Params: none
+
+Sample response:
+  "people": [
+    {
+      "name": "Geoff Pleiss",
+      "created_at": "2012-07-09T05:14:34Z",
+      "updated_at": "2012-07-09T05:14:34Z",
+      "id": 1,
+      "bar_id": 1,
+      "email": "geoffrey.pleiss@students.olin.edu",
+      "amt_owed": "0.0"
+    },
+    {
+      "name": "Jon McKay",
+      "created_at": "2012-07-09T05:33:43Z",
+      "updated_at": "2012-07-09T05:33:43Z",
+      "id": 2,
+      "bar_id": 1,
+      "email": null,
+      "amt_owed": "0.0"
+    }
+  ]
+
+
+
+
+
+BAR TRANSACTIONS LIST : list of transactions that have taken place at the bar
+
+GET /bars/(:bar_id)/transactions.json
+
+Params: none
+
+Sample response:
+  "transactions": [
+    {
+      "name": "Beer",
+      "created_at": "2012-07-09T05:38:24Z",
+      "updated_at": "2012-07-09T05:38:24Z",
+      "notes": null,
+      "amount": "1.5",
+      "id": 1,
+      "type": "Purchase",
+      "person_id": 1,
+      "bar_id": 1
+    },
+    {
+      "name": "Cash payment",
+      "created_at": "2012-07-09T05:39:06Z",
+      "updated_at": "2012-07-09T05:39:06Z",
+      "notes": null,
+      "amount": "3.0",
+      "id": 2,
+      "type": "Payment",
+      "person_id": 1,
+      "bar_id": 1
+    }
+  ]
+
+
+
+
+
+PERSON SHOW : display info about a person
+
+GET /people/(:person_id).json
+
+Params: none
+
+Sample response:
+  "people": {
+    "name": "Geoff Pleiss",
+    "created_at": "2012-07-09T05:14:34Z",
+    "updated_at": "2012-07-09T05:39:06Z",
+    "id": 1,
+    "bar_id": 1,
+    "email": "geoffrey.pleiss@students.olin.edu",
+    "amt_owed": "-1.5"
+  }
+
+
+
+
+
+PERSON TRANSACTIONS LIST : list of transactions from the given person
+
+GET /people/(:person_id)/transactions.json
+
+Params: none
+
+Sample response:
+  "transactions": [
+    {
+      "name": "Beer",
+      "created_at": "2012-07-09T05:38:24Z",
+      "updated_at": "2012-07-09T05:38:24Z",
+      "notes": null,
+      "amount": "1.5",
+      "id": 1,
+      "type": "Purchase",
+      "person_id": 1,
+      "bar_id": 1
+    },
+    {
+      "name": "Cash payment",
+      "created_at": "2012-07-09T05:39:06Z",
+      "updated_at": "2012-07-09T05:39:06Z",
+      "notes": null,
+      "amount": "3.0",
+      "id": 2,
+      "type": "Payment",
+      "person_id": 1,
+      "bar_id": 1
+    }
+  ]
+
+
+
+
+
+TRANSACTION SHOW : show information about a given transaction
+
+GET /people/(:person_id)/transactions/(:transaction_id).json
+
+Params: none
+
+Sample response:
+  "transactions": {
+    "name": "Beer",
+    "created_at": "2012-07-09T05:38:24Z",
+    "updated_at": "2012-07-09T05:38:24Z",
+    "notes": null,
+    "amount": "1.5",
+    "id": 1,
+    "type": "Purchase",
+    "person_id": 1,
+    "bar_id": 1
+  }
