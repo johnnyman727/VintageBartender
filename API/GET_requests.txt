@@ -88,6 +88,60 @@ Sample response:
 
 
 
+BAR DRINKS LIST : list of drinks available at a bar
+
+GET /bars/(:bar_id)/drinks.json
+
+Params: none
+
+Sample response:
+  "drinks": [
+    {
+      "name": "Beer",
+      "created_at": "2012-07-09T05:12:54Z",
+      "cost": "1.5",
+      "updated_at": "2012-07-09T05:12:54Z",
+      "notes": null,
+      "id": 1,
+      "bar_id": 1
+    },
+    {
+      "name": "Wine",
+      "created_at": "2012-07-09T05:13:08Z",
+      "cost": "2.0",
+      "updated_at": "2012-07-09T05:13:08Z",
+      "notes": null,
+      "id": 2,
+      "bar_id": 1
+    }
+  ]
+
+
+
+
+
+BAR DRINK SHOW : show details about a particular drink
+
+GET /bars/(:bar_id)/drinks/(:drink_id).json
+
+Params: none
+
+Sample response:
+  "drinks": {
+    "name": "Beer",
+    "created_at": "2012-07-09T05:12:54Z",
+    "cost": "1.5",
+    "updated_at": "2012-07-09T05:12:54Z",
+    "notes": null,
+    "id": 1,
+    "bar_id": 1
+  }
+
+
+
+
+ 
+
 PERSON SHOW : display info about a person
 
 GET /people/(:person_id).json
